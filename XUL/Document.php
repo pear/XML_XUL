@@ -67,6 +67,14 @@ class XML_XUL_Document
     var $_ns;
 
    /**
+    * encoding for the document
+    *
+    * @access private
+    * @var  string
+    */
+    var $_encoding;
+
+   /**
     * namespace for XHTML elements
     *
     * @access private
@@ -114,11 +122,13 @@ class XML_XUL_Document
     * @access   public
     * @param    string  filename
     * @param    string  namespace for XUL elements
+    * @param    string  encoding of the document
     */
-    function XML_XUL_Document( $filename = null, $ns = null )
+    function XML_XUL_Document( $filename = null, $ns = null, $encoding = null )
     {
         $this->_filename = $filename;
         $this->_ns       = $ns;
+        $this->_encoding = $encoding;
     }
 
    /**
@@ -241,7 +251,7 @@ class XML_XUL_Document
     */
     function serialize()
     {
-        $doc = XML_Util::getXMLDeclaration() . "\n";
+        $doc = XML_Util::getXMLDeclaration('1.0', $this->_encoding) . "\n";
 
         /**
          * add the DTD

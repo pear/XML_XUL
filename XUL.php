@@ -76,12 +76,13 @@ class XML_XUL
     * @access   public
     * @param    string  filename
     * @param    string  namespace for XUL elements
+    * @param    string  encoding of the document
     */
-    function &createDocument( $filename = null, $ns = null )
+    function &createDocument( $filename = null, $ns = null, $encoding = null )
     {
         require_once 'XML/XUL/Document.php';
 
-        $doc = &new XML_XUL_Document( $filename, $ns );
+        $doc = &new XML_XUL_Document( $filename, $ns, $encoding );
         return $doc;
     }
 
