@@ -83,7 +83,7 @@ class XML_XUL_Element_Treeitem extends XML_XUL_Element
          * treeitem has no childNodes
          */
         if (!isset($this->childNodes[1])) {
-            $this->childNodes[1] = &$this->_doc->createElement('TreechildNodes');
+            $this->childNodes[1] = &$this->_doc->createElement('Treechildren');
             $this->setAttribute( 'container', 'true' );
         }
 
