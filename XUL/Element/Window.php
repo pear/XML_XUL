@@ -109,5 +109,16 @@ class XML_XUL_Element_Window extends XML_XUL_Element
                                                    'type'     => 'string',
                                                 ),
                             );
+   /**
+    * add external javascript
+    *
+    * @access   public
+    * @param    string      src of the script
+    * @param    string      type of the script
+    */
+    function addScript( $src, $type = 'application/x-javascript' )
+    {
+        $this->appendChild( $this->_doc->createElement( 'Script', array( 'src' => $src, 'type' => $type ) ) );
+    }
 }
 ?>
