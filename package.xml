@@ -17,13 +17,16 @@ be created with these objects.</description>
     </maintainer>
   </maintainers>
   <release>
-    <version>0.6.0</version>
+    <version>0.7.0</version>
     <date>2004-03-15</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>first public PEAR release</notes>
+    <notes>added XML_XUL::loadString(),
+added XML_XUL::loadFile(),
+added XML_XUL_Parser class</notes>
     <deps>
       <dep type="pkg" rel="ge" version="0.5.2">XML_Util</dep>
+      <dep type="pkg" rel="ge" version="1.0.1">XML_Parser</dep>
     </deps>
     <provides type="class" name="XML_XUL_Document" />
     <provides type="function" name="XML_XUL_Document::setHtmlNamespace" />
@@ -61,6 +64,12 @@ be created with these objects.</description>
     <provides type="function" name="XML_XUL_Element::lastChild" />
     <provides type="function" name="XML_XUL_Element::addDescription" />
     <provides type="function" name="XML_XUL_Element::getDebug" />
+    <provides type="class" name="XML_XUL_Parser" extends="XML_Parser" />
+    <provides type="function" name="XML_XUL_Parser::loadFile" />
+    <provides type="function" name="XML_XUL_Parser::loadString" />
+    <provides type="function" name="XML_XUL_Parser::startHandler" />
+    <provides type="function" name="XML_XUL_Parser::endHandler" />
+    <provides type="function" name="XML_XUL_Parser::cdataHandler" />
     <provides type="class" name="XML_XUL_Element_Action" extends="XML_XUL_Element" />
     <provides type="class" name="XML_XUL_Element_Arrowscrollbox" extends="XML_XUL_Element" />
     <provides type="class" name="XML_XUL_Element_Autorepeatbutton" extends="XML_XUL_Element" />
@@ -162,6 +171,7 @@ be created with these objects.</description>
     <provides type="function" name="XML_XUL::apiVersion" />
     <provides type="function" name="XML_XUL::createDocument" />
     <provides type="function" name="XML_XUL::loadFile" />
+    <provides type="function" name="XML_XUL::loadString" />
     <filelist>
       <file role="doc" baseinstalldir="XML" md5sum="9be3f6bd9bafb815b011362a1c20436f" name="examples/example_browser.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="9f3fc850d0f6a90f69a24f6b213c6a6e" name="examples/example_dom.php"/>
@@ -171,6 +181,8 @@ be created with these objects.</description>
       <file role="doc" baseinstalldir="XML" md5sum="11df1ad44e132bc9445ed1f1db9f0044" name="examples/example_grid.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="c283ac1d818cd7f654f4df2d8f1185bf" name="examples/example_html.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="d3f3d27e0f279ef6720161cad38e75db" name="examples/example_listbox.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="229bdeab63e2f52abc1c90b1047ab516" name="examples/example_loadFile.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="1f068176515920b0a469b1f7e4b3d794" name="examples/example_loadString.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="65664703c14f255a913c2828a1162647" name="examples/example_menu.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="3941c464b9ec80269b4d6bdf8ff95ba4" name="examples/example_popup.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="7bc4b8f66eb4ae509b073b0b1df41347" name="examples/example_progressmeter.php"/>
@@ -180,9 +192,11 @@ be created with these objects.</description>
       <file role="doc" baseinstalldir="XML" md5sum="441ff9f88cc6b323aa428ef06592feae" name="examples/example_toolbar.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="bd27bbebfef632863dff363f158d25e4" name="examples/example_tree.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="7b9bd78c82f6e1da65e492b898e1089b" name="examples/example_validate.php"/>
-      <file role="doc" baseinstalldir="XML" md5sum="b309cf81d425886a90e9ffbae7677797" name="examples/index.html"/>
+      <file role="doc" baseinstalldir="XML" md5sum="d0b61e6f4a4685cf6238b071e1f24492" name="examples/index.html"/>
+      <file role="doc" baseinstalldir="XML" md5sum="9b63144936439df64cc7aec4a826eedb" name="examples/xul/example1.xul"/>
       <file role="php" baseinstalldir="XML" md5sum="b573bca6503b1dd253b9b0e07c5eef54" name="XUL/Document.php"/>
       <file role="php" baseinstalldir="XML" md5sum="86f7a8615c4ef513cbbe96420118fcfd" name="XUL/Element.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="dbb16214656249a0b03a722f1d7e4425" name="XUL/Parser.php"/>
       <file role="php" baseinstalldir="XML" md5sum="827b06923522627979845670c689cfd4" name="XUL/Element/Action.php"/>
       <file role="php" baseinstalldir="XML" md5sum="f96f4afd09eb812928acb7d9d775a893" name="XUL/Element/Arrowscrollbox.php"/>
       <file role="php" baseinstalldir="XML" md5sum="752c8307ec5764a8f03678fa44c44e84" name="XUL/Element/Autorepeatbutton.php"/>
@@ -255,8 +269,7 @@ be created with these objects.</description>
       <file role="php" baseinstalldir="XML" md5sum="be19e3110002fa9a0945ae3fb39fd4b7" name="XUL/Element/Treerow.php"/>
       <file role="php" baseinstalldir="XML" md5sum="7cad7a111c4abd69ed976efe4f3313d8" name="XUL/Element/Vbox.php"/>
       <file role="php" baseinstalldir="XML" md5sum="1b186d7219b2b802f195d7fb38f572d1" name="XUL/Element/Window.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="39c903c971055c9cbbc210e66643c46a" name="XUL.php"/>
-      <file role="php" baseinstalldir="XML" name="XUL/Parser.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="f1b5e1f4700f5821c41c8d5d3606333e" name="XUL.php"/>
     </filelist>
   </release>
   <changelog>
@@ -303,6 +316,15 @@ elementName is now public,</notes>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>first public PEAR release</notes>
+    </release>
+    <release>
+      <version>0.7.0</version>
+      <date>2004-03-15</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>added XML_XUL::loadString(),
+added XML_XUL::loadFile(),
+added XML_XUL_Parser class</notes>
     </release>
   </changelog>
 </package>
