@@ -14,14 +14,26 @@
 require_once 'XML/XUL.php';
 
 $xul = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <window title="Example for PEAR::XML_XUL" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-          <groupbox>
+        <window id="win" title="Example for PEAR::XML_XUL" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+          <groupbox id="box1">
             <caption label="Loading from a string"/>
             <progressmeter height="20" mode="undetermined" />
           </groupbox>
         </window>';
  
 $doc = &XML_XUL::loadString($xul);
+$win = &$doc->getElementById('win');
+
+
+$box1 = &$doc->getElementById('box1');
+$box2 = &$box1->cloneElement(true);
+$box2->setCaption('Cloned recursive');
+
+$box3 = &$box1->cloneElement();
+$box3->setCaption('Cloned non-recursive');
+
+$win->appendChild($box2);
+$win->appendChild($box3);
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';

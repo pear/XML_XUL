@@ -476,35 +476,28 @@ class XML_XUL_Element
     * without the id and the childNodes
     *
     * @access   public
-    * @return   object XML_XUL_Element
-    * @uses        __clone()
-    */
-    function &cloneElement()
-    {
-        return $this->__clone();
-    }
-
-   /**
-    * clone the element
-    *
-    * This method will return a copy of the element
-    * without the id and the childNodes.
-    *
-    * In PHP5 this is called automatically by clone();
-    *
-    * @access   private
+    * @param    boolean     whether children should be cloned, too.
     * @return   object XML_XUL_Element
     */
-    function &__clone()
+    function &cloneElement( $recursive = false )
     {
         $atts = $this->attributes;
         unset($atts['id']);
         
         $copy = &$this->_doc->createElement($this->elementName, $atts, $this->cdata);
-
+        if ($recursive !== true) {
+            return $copy;
+        }
+        /**
+         * copy child nodes
+         */
+        $cnt = count($this->childNodes);
+        for ($i = 0; $i < $cnt; $i++) {
+            $copy->appendChild( $this->childNodes[$i]->cloneElement( $recursive ) );
+        }
         return $copy;
     }
-    
+
    /**
     * get an element by its id
     *
