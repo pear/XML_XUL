@@ -17,13 +17,15 @@ be created with these objects.</description>
     </maintainer>
   </maintainers>
   <release>
-    <version>0.7.0</version>
-    <date>2004-03-15</date>
+    <version>0.8.0</version>
+    <date>2004-03-30</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>added XML_XUL::loadString(),
-added XML_XUL::loadFile(),
-added XML_XUL_Parser class</notes>
+    <notes>added Menulist,
+fixed script element,
+added addScript() to Window element,
+made root a public property of the document (bug #1081),
+document is now able to create any element object, regardless if there's a PHP class for it (bug #1082) (thanks to Alan B. Knowles)</notes>
     <deps>
       <dep type="pkg" rel="ge" version="0.5.2">XML_Util</dep>
       <dep type="pkg" rel="ge" version="1.0.1">XML_Parser</dep>
@@ -121,6 +123,10 @@ added XML_XUL_Parser class</notes>
     <provides type="class" name="XML_XUL_Element_Menubar" extends="XML_XUL_Element" />
     <provides type="function" name="XML_XUL_Element_Menubar::addMenu" />
     <provides type="class" name="XML_XUL_Element_Menuitem" extends="XML_XUL_Element" />
+    <provides type="class" name="XML_XUL_Element_Menulist" extends="XML_XUL_Element" />
+    <provides type="function" name="XML_XUL_Element_Menulist::preparePopup" />
+    <provides type="function" name="XML_XUL_Element_Menulist::addSubmenu" />
+    <provides type="function" name="XML_XUL_Element_Menulist::addItem" />
     <provides type="class" name="XML_XUL_Element_Menupopup" extends="XML_XUL_Element" />
     <provides type="class" name="XML_XUL_Element_Menuseparator" extends="XML_XUL_Element" />
     <provides type="class" name="XML_XUL_Element_Popup" extends="XML_XUL_Element" />
@@ -167,6 +173,7 @@ added XML_XUL_Parser class</notes>
     <provides type="class" name="XML_XUL_Element_Treerow" extends="XML_XUL_Element" />
     <provides type="class" name="XML_XUL_Element_Vbox" extends="XML_XUL_Element" />
     <provides type="class" name="XML_XUL_Element_Window" extends="XML_XUL_Element" />
+    <provides type="function" name="XML_XUL_Element_Window::addScript" />
     <provides type="class" name="XML_XUL" />
     <provides type="function" name="XML_XUL::apiVersion" />
     <provides type="function" name="XML_XUL::createDocument" />
@@ -182,7 +189,7 @@ added XML_XUL_Parser class</notes>
       <file role="doc" baseinstalldir="XML" md5sum="c283ac1d818cd7f654f4df2d8f1185bf" name="examples/example_html.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="d3f3d27e0f279ef6720161cad38e75db" name="examples/example_listbox.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="229bdeab63e2f52abc1c90b1047ab516" name="examples/example_loadFile.php"/>
-      <file role="doc" baseinstalldir="XML" md5sum="1f068176515920b0a469b1f7e4b3d794" name="examples/example_loadString.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="6d33d80517c6aa5a7a1f51ce335398c4" name="examples/example_loadString.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="65664703c14f255a913c2828a1162647" name="examples/example_menu.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="3941c464b9ec80269b4d6bdf8ff95ba4" name="examples/example_popup.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="7bc4b8f66eb4ae509b073b0b1df41347" name="examples/example_progressmeter.php"/>
@@ -194,7 +201,7 @@ added XML_XUL_Parser class</notes>
       <file role="doc" baseinstalldir="XML" md5sum="7b9bd78c82f6e1da65e492b898e1089b" name="examples/example_validate.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="d0b61e6f4a4685cf6238b071e1f24492" name="examples/index.html"/>
       <file role="doc" baseinstalldir="XML" md5sum="9b63144936439df64cc7aec4a826eedb" name="examples/xul/example1.xul"/>
-      <file role="php" baseinstalldir="XML" md5sum="b573bca6503b1dd253b9b0e07c5eef54" name="XUL/Document.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="423cc1d34efe1a43d74c8f5b03fd3151" name="XUL/Document.php"/>
       <file role="php" baseinstalldir="XML" md5sum="86f7a8615c4ef513cbbe96420118fcfd" name="XUL/Element.php"/>
       <file role="php" baseinstalldir="XML" md5sum="dbb16214656249a0b03a722f1d7e4425" name="XUL/Parser.php"/>
       <file role="php" baseinstalldir="XML" md5sum="827b06923522627979845670c689cfd4" name="XUL/Element/Action.php"/>
@@ -233,6 +240,7 @@ added XML_XUL_Parser class</notes>
       <file role="php" baseinstalldir="XML" md5sum="2c24d3242e417a579f7de43a9c36c728" name="XUL/Element/Menu.php"/>
       <file role="php" baseinstalldir="XML" md5sum="872ee5b9ef9b075dd9d93e5d6819820f" name="XUL/Element/Menubar.php"/>
       <file role="php" baseinstalldir="XML" md5sum="b11cc89efe65ceeff27279a293601f7f" name="XUL/Element/Menuitem.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="84a71b1d778d66b0aa49b32a390506dd" name="XUL/Element/Menulist.php"/>
       <file role="php" baseinstalldir="XML" md5sum="e2142fb19246a8c566b2e54ea8b6bdc4" name="XUL/Element/Menupopup.php"/>
       <file role="php" baseinstalldir="XML" md5sum="660d82a24e42568075939efe7ef92c8e" name="XUL/Element/Menuseparator.php"/>
       <file role="php" baseinstalldir="XML" md5sum="7ebd851f6e277fa7c0a3c0db14ffa90c" name="XUL/Element/Popup.php"/>
@@ -242,7 +250,7 @@ added XML_XUL_Parser class</notes>
       <file role="php" baseinstalldir="XML" md5sum="91c05fc237675b28402dc99c6a228b07" name="XUL/Element/Radiogroup.php"/>
       <file role="php" baseinstalldir="XML" md5sum="e72b83e0bde147557dc9fb696f32892d" name="XUL/Element/Row.php"/>
       <file role="php" baseinstalldir="XML" md5sum="f793419c1476a0bed30095912c81bbe4" name="XUL/Element/Rows.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="c8b30e1909f84e2307ff29eb3ae69aca" name="XUL/Element/Script.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="3e02291b60905b5bb4fefe9edfda34c2" name="XUL/Element/Script.php"/>
       <file role="php" baseinstalldir="XML" md5sum="e5b1e652dedb981bf8ef0d6dd669aca2" name="XUL/Element/Separator.php"/>
       <file role="php" baseinstalldir="XML" md5sum="27e48bc00d0e80ee4747450b832803e1" name="XUL/Element/Spacer.php"/>
       <file role="php" baseinstalldir="XML" md5sum="3bb9658d8a55f8a3e358eabb84dfde75" name="XUL/Element/Splitter.php"/>
@@ -268,7 +276,7 @@ added XML_XUL_Parser class</notes>
       <file role="php" baseinstalldir="XML" md5sum="fa4c4273d610b64f3332c90461cf6c77" name="XUL/Element/Treeitem.php"/>
       <file role="php" baseinstalldir="XML" md5sum="be19e3110002fa9a0945ae3fb39fd4b7" name="XUL/Element/Treerow.php"/>
       <file role="php" baseinstalldir="XML" md5sum="7cad7a111c4abd69ed976efe4f3313d8" name="XUL/Element/Vbox.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="1b186d7219b2b802f195d7fb38f572d1" name="XUL/Element/Window.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="678143ab62fbefa469f1017ee2904e9e" name="XUL/Element/Window.php"/>
       <file role="php" baseinstalldir="XML" md5sum="f1b5e1f4700f5821c41c8d5d3606333e" name="XUL.php"/>
     </filelist>
   </release>
@@ -319,12 +327,23 @@ elementName is now public,</notes>
     </release>
     <release>
       <version>0.7.0</version>
-      <date>2004-03-15</date>
+      <date>2004-03-21</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>added XML_XUL::loadString(),
 added XML_XUL::loadFile(),
 added XML_XUL_Parser class</notes>
+    </release>
+    <release>
+      <version>0.8.0</version>
+      <date>2004-03-30</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>added Menulist,
+fixed script element,
+added addScript() to Window element,
+made root a public property of the document (bug #1081),
+document is now able to create any element object, regardless if there's a PHP class for it (bug #1082) (thanks to Alan B. Knowles)</notes>
     </release>
   </changelog>
 </package>
