@@ -430,6 +430,8 @@ class XML_XUL_Element
     */
     function serialize()
     {
+        $content = '';
+        
         if (empty($this->_ns)) {
             $el = $this->elementName;
         } else {
@@ -444,7 +446,6 @@ class XML_XUL_Element
                 }
             }
         } else {
-            $content = '';
             $cnt = count($this->childNodes);
             for ($i=0; $i<$cnt; $i++) {
                 $content .= $this->childNodes[$i]->serialize();
