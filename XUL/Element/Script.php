@@ -47,7 +47,7 @@ class XML_XUL_Element_Script extends XML_XUL_Element
     * @access public
     * @var  string
     */
-    var $elementName = 'Script';
+    var $elementName = 'script';
 
    /**
     * attribute defintions
