@@ -17,15 +17,11 @@ be created with these objects.</description>
     </maintainer>
   </maintainers>
   <release>
-    <version>0.5.3</version>
-    <date>2004-02-29</date>
+    <version>0.6</version>
+    <date>2004-03-09</date>
     <license>PHP License</license>
-    <state>beta</state>
-    <notes>renamed children to childNodes, 
-renamed addChild() to appendChild(), 
-added getElementsByTagname(), 
-added getDebug() and showDebug(), 
-elementName is now public,</notes>
+    <state>alpha</state>
+    <notes>first public PEAR release</notes>
     <deps>
       <dep type="pkg" rel="ge" version="0.5.2">XML_Util</dep>
     </deps>
@@ -182,10 +178,10 @@ elementName is now public,</notes>
       <file role="doc" baseinstalldir="XML" md5sum="ea2a34131508d0e2bc0eca99c3605363" name="examples/example_tabs.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="441ff9f88cc6b323aa428ef06592feae" name="examples/example_toolbar.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="bd27bbebfef632863dff363f158d25e4" name="examples/example_tree.php"/>
-      <file role="doc" baseinstalldir="XML" md5sum="a9e94639d6ae473605cf795a03bf2cde" name="examples/example_validate.php"/>
+      <file role="doc" baseinstalldir="XML" md5sum="7b9bd78c82f6e1da65e492b898e1089b" name="examples/example_validate.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="b309cf81d425886a90e9ffbae7677797" name="examples/index.html"/>
-      <file role="php" baseinstalldir="XML" md5sum="862f085fd60ef56cac94edb9d015762a" name="XUL/Document.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="f26c4ab9c055e8fc4b2acdfcef44ca95" name="XUL/Element.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="b573bca6503b1dd253b9b0e07c5eef54" name="XUL/Document.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="86f7a8615c4ef513cbbe96420118fcfd" name="XUL/Element.php"/>
       <file role="php" baseinstalldir="XML" md5sum="827b06923522627979845670c689cfd4" name="XUL/Element/Action.php"/>
       <file role="php" baseinstalldir="XML" md5sum="f96f4afd09eb812928acb7d9d775a893" name="XUL/Element/Arrowscrollbox.php"/>
       <file role="php" baseinstalldir="XML" md5sum="752c8307ec5764a8f03678fa44c44e84" name="XUL/Element/Autorepeatbutton.php"/>
@@ -204,7 +200,7 @@ elementName is now public,</notes>
       <file role="php" baseinstalldir="XML" md5sum="1d116ee98ea7e965558d6027f5190dc6" name="XUL/Element/Dialog.php"/>
       <file role="php" baseinstalldir="XML" md5sum="01b9011495d2441e7db8824cf87ea3e9" name="XUL/Element/Dialogheader.php"/>
       <file role="php" baseinstalldir="XML" md5sum="9a38c4167fbca9f5714afde09690cfe7" name="XUL/Element/Editor.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="dfe4ec734f3a9e11d576f6448afc7110" name="XUL/Element/Grid.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="c1f7edbddac8f8dcce64c87f0bb1e984" name="XUL/Element/Grid.php"/>
       <file role="php" baseinstalldir="XML" md5sum="3ce29f1a2a66a4adf7db1392bd0e76ed" name="XUL/Element/Grippy.php"/>
       <file role="php" baseinstalldir="XML" md5sum="2aa50314b09ff2e337f3d45903e2aa59" name="XUL/Element/Groupbox.php"/>
       <file role="php" baseinstalldir="XML" md5sum="e44650ec31930b4f57ec3eaf1de92d0f" name="XUL/Element/Hbox.php"/>
@@ -212,7 +208,7 @@ elementName is now public,</notes>
       <file role="php" baseinstalldir="XML" md5sum="b2141cdeaaed34013188cc7d0fff0017" name="XUL/Element/Iframe.php"/>
       <file role="php" baseinstalldir="XML" md5sum="a41113cde860f69c0725e906e60fa675" name="XUL/Element/Image.php"/>
       <file role="php" baseinstalldir="XML" md5sum="1ba91089c9762eba27e3879e600b8133" name="XUL/Element/Label.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="ff187f04d2ef12bb13d08afc38826eca" name="XUL/Element/Listbox.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="2bee445fe607e571765d653f2ea81134" name="XUL/Element/Listbox.php"/>
       <file role="php" baseinstalldir="XML" md5sum="2c7a2755be7de2d0ebf8bda5456d54b8" name="XUL/Element/Listcell.php"/>
       <file role="php" baseinstalldir="XML" md5sum="bbe8e73c70e14031b7e0e5d3e9141aff" name="XUL/Element/Listcol.php"/>
       <file role="php" baseinstalldir="XML" md5sum="d14e9225fd714ad4936051ce77f2bf88" name="XUL/Element/Listcols.php"/>
@@ -239,7 +235,7 @@ elementName is now public,</notes>
       <file role="php" baseinstalldir="XML" md5sum="853510bdc2a8d3d60260c3668d8303ca" name="XUL/Element/Statusbar.php"/>
       <file role="php" baseinstalldir="XML" md5sum="066cac8893ce2cc4c2a5531fdec6c688" name="XUL/Element/Statusbarpanel.php"/>
       <file role="php" baseinstalldir="XML" md5sum="99a070fd926569c071bf1ee454ad83d1" name="XUL/Element/Tab.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="963c50969afa330f1b84b3f5dc141ca3" name="XUL/Element/Tabbox.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="1333edf64cea7f8bf1d0b3b77b7e6a59" name="XUL/Element/Tabbox.php"/>
       <file role="php" baseinstalldir="XML" md5sum="1e78c5ab8941ae7d6a6c8816cad7b558" name="XUL/Element/Tabpanel.php"/>
       <file role="php" baseinstalldir="XML" md5sum="73fd1e1e58aeacb83c8773b15f705b72" name="XUL/Element/Tabpanels.php"/>
       <file role="php" baseinstalldir="XML" md5sum="c31f44c9f5c74e617c099f02fd6b3ba0" name="XUL/Element/Tabs.php"/>
@@ -249,16 +245,16 @@ elementName is now public,</notes>
       <file role="php" baseinstalldir="XML" md5sum="b89d36bf75378ccc1bf4e193f151ce46" name="XUL/Element/Toolbarseparator.php"/>
       <file role="php" baseinstalldir="XML" md5sum="e3b8f6ec3c958d4efd75c4911efd90c2" name="XUL/Element/Toolbox.php"/>
       <file role="php" baseinstalldir="XML" md5sum="96b048b31c029b55227ee4ec71d0a922" name="XUL/Element/Tooltip.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="8aecfe0b8292bd0267a332275cb0469b" name="XUL/Element/Tree.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="6b95e662ca2deb224ec3e33f428bdcb5" name="XUL/Element/Tree.php"/>
       <file role="php" baseinstalldir="XML" md5sum="5dab8753aec25bd4fa324a75f1b39992" name="XUL/Element/Treecell.php"/>
       <file role="php" baseinstalldir="XML" md5sum="ecafe7bb50226714e11f9dc8b5a1db23" name="XUL/Element/Treechildren.php"/>
       <file role="php" baseinstalldir="XML" md5sum="645cb40de1b593514351a31675315789" name="XUL/Element/Treecol.php"/>
       <file role="php" baseinstalldir="XML" md5sum="c3ac9e71b10743e0017f7c49371e12e4" name="XUL/Element/Treecols.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="e7fd383c72fb23f164b6349cccd90608" name="XUL/Element/Treeitem.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="fa4c4273d610b64f3332c90461cf6c77" name="XUL/Element/Treeitem.php"/>
       <file role="php" baseinstalldir="XML" md5sum="be19e3110002fa9a0945ae3fb39fd4b7" name="XUL/Element/Treerow.php"/>
       <file role="php" baseinstalldir="XML" md5sum="7cad7a111c4abd69ed976efe4f3313d8" name="XUL/Element/Vbox.php"/>
       <file role="php" baseinstalldir="XML" md5sum="1b186d7219b2b802f195d7fb38f572d1" name="XUL/Element/Window.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="0f5f0aef39bddf012e34a1a9645374fb" name="XUL.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="6b65ccc123a57bf759d7b3422419b4ed" name="XUL.php"/>
     </filelist>
   </release>
   <changelog>
@@ -291,6 +287,13 @@ renamed addChild() to appendChild(),
 added getElementsByTagname(), 
 added getDebug() and showDebug(), 
 elementName is now public,</notes>
+    </release>
+    <release>
+      <version>0.6</version>
+      <date>2004-03-09</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>first public PEAR release</notes>
     </release>
   </changelog>
 </package>
