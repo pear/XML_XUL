@@ -98,7 +98,7 @@ class XML_XUL_Document
     * @access   private
     * @var      object XML_XUL_Element
     */
-    var $_root;
+    var $root;
     
    /**
     * flag to indicate whether element attributes should validate
@@ -179,7 +179,7 @@ class XML_XUL_Document
             $el->setHtmlNamespace($this->_htmlNs);
         }
         
-        $this->_root = &$el;
+        $this->root = &$el;
     }
     
    /**
@@ -247,7 +247,7 @@ class XML_XUL_Document
          * add the DTD
          */
         if ($this->_dtd != null) {
-            $doc .= XML_Util::getDocTypeDeclaration( $this->_root->getTagname(), $this->_dtd ) . "\n";
+            $doc .= XML_Util::getDocTypeDeclaration( $this->root->getTagname(), $this->_dtd ) . "\n";
         }
         
         /**
@@ -258,7 +258,7 @@ class XML_XUL_Document
             $doc .= sprintf('<?xml-stylesheet href="%s" type="text/css"?>', $this->_stylesheets[$i]) . "\n";
         }
         
-        $doc .= $this->_root->serialize();
+        $doc .= $this->root->serialize();
         
         return $doc;
     }
@@ -341,7 +341,7 @@ class XML_XUL_Document
     */
     function &getElementById( $id )
     {
-        return $this->_root->getElementById( $id );
+        return $this->root->getElementById( $id );
     }
 
    /**
@@ -353,7 +353,7 @@ class XML_XUL_Document
     */
     function &getElementsByTagname($tagname)
     {
-        return $this->_root->getElementsByTagname( $tagname );
+        return $this->root->getElementsByTagname( $tagname );
     }
 
    /**
@@ -377,7 +377,7 @@ class XML_XUL_Document
             }
         }
         $debug .= " +childNodes\n";
-        $debug .= $this->_root->getDebug(' ', true);
+        $debug .= $this->root->getDebug(' ', true);
         return $debug;
     }
 
