@@ -1,217 +1,237 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0">
-  <name>XML_XUL</name>
-  <summary>Class to build Mozilla XUL applications.</summary>
-  <description>The XML User Interface Language (XUL) is a markup language for describing user interfaces.
+<package version="1.0" packagerversion="1.4.0a7">
+ <name>XML_XUL</name>
+ <summary>Class to build Mozilla XUL applications.</summary>
+ <description>The XML User Interface Language (XUL) is a markup language for describing user interfaces.
 With XUL you can create rich, sophisticated cross-platform web applications easily.
-XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP object for each XUL element, and the more complex widgets like grids, trees and tabboxes can easily be created with these objects.</description>
-  <maintainers>
-    <maintainer>
-      <user>schst</user>
-      <name>Stephan Schmidt</name>
-      <email>schst@php.net</email>
-      <role>lead</role>
-    </maintainer>
+XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP object for each XUL element, and the more complex widgets like grids, trees and tabboxes can easily be created with these objects.
+ </description>
+ <maintainers>
+  <maintainer>
+   <user>schst</user>
+   <name>Stephan Schmidt</name>
+   <email>schst@php.net</email>
+   <role>lead</role>
+  </maintainer>
   </maintainers>
-  <release>
+ <release>
+  <version>0.8.2</version>
+  <date>2005-03-20</date>
+  <license>PHP License</license>
+  <state>alpha</state>
+  <notes>- fixed several notices when working with E_ALL,
+- fixed typo in Treecell element
+- added new parameter for encoding in createDocument() (Request #3830)
+  </notes>
+  <deps>
+   <dep type="pkg" rel="ge" version="0.5.2" optional="no">XML_Util</dep>
+   <dep type="pkg" rel="ge" version="1.1.0" optional="no">XML_Parser</dep>
+   <dep type="pkg" rel="has" optional="no">PEAR</dep>
+   <dep type="php" rel="ge" version="4.2.0" optional="no"/>
+  </deps>
+  <filelist>
+   <dir name="/" baseinstalldir="XML">
+    <dir name="examples">
+     <dir name="xul">
+      <file role="doc" name="example1.xul"/>
+     </dir> <!-- /examples/xul -->
+     <file role="doc" name="example_browser.php"/>
+     <file role="doc" name="example_dom.php"/>
+     <file role="doc" name="example_dom2.php"/>
+     <file role="doc" name="example_dump.php"/>
+     <file role="doc" name="example_fields.php"/>
+     <file role="doc" name="example_grid.php"/>
+     <file role="doc" name="example_html.php"/>
+     <file role="doc" name="example_listbox.php"/>
+     <file role="doc" name="example_loadFile.php"/>
+     <file role="doc" name="example_loadString.php"/>
+     <file role="doc" name="example_menu.php"/>
+     <file role="doc" name="example_popup.php"/>
+     <file role="doc" name="example_progressmeter.php"/>
+     <file role="doc" name="example_radiogroup.php"/>
+     <file role="doc" name="example_splitter.php"/>
+     <file role="doc" name="example_tabs.php"/>
+     <file role="doc" name="example_toolbar.php"/>
+     <file role="doc" name="example_tree.php"/>
+     <file role="doc" name="example_validate.php"/>
+     <file role="doc" name="index.html"/>
+    </dir> <!-- /examples -->
+    <dir name="XUL">
+     <dir name="Element">
+      <file role="php" name="Action.php"/>
+      <file role="php" name="Arrowscrollbox.php"/>
+      <file role="php" name="Autorepeatbutton.php"/>
+      <file role="php" name="Box.php"/>
+      <file role="php" name="Broadcaster.php"/>
+      <file role="php" name="Broadcasterset.php"/>
+      <file role="php" name="Browser.php"/>
+      <file role="php" name="Button.php"/>
+      <file role="php" name="Caption.php"/>
+      <file role="php" name="Checkbox.php"/>
+      <file role="php" name="Colorpicker.php"/>
+      <file role="php" name="Column.php"/>
+      <file role="php" name="Columns.php"/>
+      <file role="php" name="Deck.php"/>
+      <file role="php" name="Description.php"/>
+      <file role="php" name="Dialog.php"/>
+      <file role="php" name="Dialogheader.php"/>
+      <file role="php" name="Editor.php"/>
+      <file role="php" name="Grid.php"/>
+      <file role="php" name="Grippy.php"/>
+      <file role="php" name="Groupbox.php"/>
+      <file role="php" name="Hbox.php"/>
+      <file role="php" name="Html.php"/>
+      <file role="php" name="Iframe.php"/>
+      <file role="php" name="Image.php"/>
+      <file role="php" name="Label.php"/>
+      <file role="php" name="Listbox.php"/>
+      <file role="php" name="Listcell.php"/>
+      <file role="php" name="Listcol.php"/>
+      <file role="php" name="Listcols.php"/>
+      <file role="php" name="Listhead.php"/>
+      <file role="php" name="Listheader.php"/>
+      <file role="php" name="Listitem.php"/>
+      <file role="php" name="Menu.php"/>
+      <file role="php" name="Menubar.php"/>
+      <file role="php" name="Menuitem.php"/>
+      <file role="php" name="Menulist.php"/>
+      <file role="php" name="Menupopup.php"/>
+      <file role="php" name="Menuseparator.php"/>
+      <file role="php" name="Popup.php"/>
+      <file role="php" name="Popupset.php"/>
+      <file role="php" name="Progressmeter.php"/>
+      <file role="php" name="Radio.php"/>
+      <file role="php" name="Radiogroup.php"/>
+      <file role="php" name="Row.php"/>
+      <file role="php" name="Rows.php"/>
+      <file role="php" name="Script.php"/>
+      <file role="php" name="Separator.php"/>
+      <file role="php" name="Spacer.php"/>
+      <file role="php" name="Splitter.php"/>
+      <file role="php" name="Stack.php"/>
+      <file role="php" name="Statusbar.php"/>
+      <file role="php" name="Statusbarpanel.php"/>
+      <file role="php" name="Tab.php"/>
+      <file role="php" name="Tabbox.php"/>
+      <file role="php" name="Tabpanel.php"/>
+      <file role="php" name="Tabpanels.php"/>
+      <file role="php" name="Tabs.php"/>
+      <file role="php" name="Textbox.php"/>
+      <file role="php" name="Toolbar.php"/>
+      <file role="php" name="Toolbarbutton.php"/>
+      <file role="php" name="Toolbarseparator.php"/>
+      <file role="php" name="Toolbox.php"/>
+      <file role="php" name="Tooltip.php"/>
+      <file role="php" name="Tree.php"/>
+      <file role="php" name="Treecell.php"/>
+      <file role="php" name="Treechildren.php"/>
+      <file role="php" name="Treecol.php"/>
+      <file role="php" name="Treecols.php"/>
+      <file role="php" name="Treeitem.php"/>
+      <file role="php" name="Treerow.php"/>
+      <file role="php" name="Vbox.php"/>
+      <file role="php" name="Window.php"/>
+     </dir> <!-- /XUL/Element -->
+     <file role="php" name="Document.php"/>
+     <file role="php" name="Element.php"/>
+     <file role="php" name="Parser.php"/>
+    </dir> <!-- /XUL -->
+    <file role="php" name="XUL.php"/>
+   </dir> <!-- / -->
+  </filelist>
+ </release>
+ <changelog>
+   <release>
+    <version>0.5</version>
+    <date>2004-02-23</date>
+    <license>PHP License</license>
+    <state>beta</state>
+    <notes>inital proposal
+    </notes>
+   </release>
+   <release>
+    <version>0.5.1</version>
+    <date>2004-02-29</date>
+    <license>PHP License</license>
+    <state>beta</state>
+    <notes>renamed clone() to cloneElement(), 
+changed attributes, children and cdata to public properties, 
+added toXML(), 
+getElementById() returns false if node is not found, 
+removed some unneeded properties,
+added some small docs
+    </notes>
+   </release>
+   <release>
+    <version>0.5.3</version>
+    <date>2004-02-29</date>
+    <license>PHP License</license>
+    <state>beta</state>
+    <notes>renamed children to childNodes, 
+renamed addChild() to appendChild(), 
+added getElementsByTagname(), 
+added getDebug() and showDebug(), 
+elementName is now public,
+    </notes>
+   </release>
+   <release>
+    <version>0.6</version>
+    <date>2004-03-09</date>
+    <license>PHP License</license>
+    <state>alpha</state>
+    <notes>first public PEAR release
+    </notes>
+   </release>
+   <release>
+    <version>0.6.0</version>
+    <date>2004-03-15</date>
+    <license>PHP License</license>
+    <state>alpha</state>
+    <notes>first public PEAR release
+    </notes>
+   </release>
+   <release>
+    <version>0.7.0</version>
+    <date>2004-03-21</date>
+    <license>PHP License</license>
+    <state>alpha</state>
+    <notes>added XML_XUL::loadString(),
+added XML_XUL::loadFile(),
+added XML_XUL_Parser class
+    </notes>
+   </release>
+   <release>
+    <version>0.8.0</version>
+    <date>2004-03-30</date>
+    <license>PHP License</license>
+    <state>alpha</state>
+    <notes>added Menulist,
+fixed script element,
+added addScript() to Window element,
+made root a public property of the document (bug #1081),
+document is now able to create any element object, regardless if there's a PHP class for it (bug #1082) (thanks to Alan B. Knowles)
+    </notes>
+   </release>
+   <release>
     <version>0.8.1</version>
     <date>2004-06-26</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>XML_XUL now works with PHP5,
 fixed bug #1255,
-improved cloneElement() to allow cloning of complete subtrees</notes>
-    <deps>
-      <dep type="pkg" rel="ge" version="0.5.2" optional="no">XML_Util</dep>
-      <dep type="pkg" rel="ge" version="1.1.0" optional="no">XML_Parser</dep>
-      <dep type="pkg" rel="has" optional="no">PEAR</dep>
-      <dep type="php" rel="ge" version="4.2.0" optional="no"/>
-    </deps>
-    <filelist>
-      <dir baseinstalldir="XML" name="/">
-       <dir name="examples">
-        <file role="doc" name="example_browser.php"/>
-        <file role="doc" name="example_dom.php"/>
-        <file role="doc" name="example_dom2.php"/>
-        <file role="doc" name="example_dump.php"/>
-        <file role="doc" name="example_fields.php"/>
-        <file role="doc" name="example_grid.php"/>
-        <file role="doc" name="example_html.php"/>
-        <file role="doc" name="example_listbox.php"/>
-        <file role="doc" name="example_loadFile.php"/>
-        <file role="doc" name="example_loadString.php"/>
-        <file role="doc" name="example_menu.php"/>
-        <file role="doc" name="example_popup.php"/>
-        <file role="doc" name="example_progressmeter.php"/>
-        <file role="doc" name="example_radiogroup.php"/>
-        <file role="doc" name="example_splitter.php"/>
-        <file role="doc" name="example_tabs.php"/>
-        <file role="doc" name="example_toolbar.php"/>
-        <file role="doc" name="example_tree.php"/>
-        <file role="doc" name="example_validate.php"/>
-        <file role="doc" name="index.html"/>
-        <dir name="xul">
-         <file role="doc" name="example1.xul"/>
-        </dir> <!-- examples/xul -->
-       </dir> <!-- examples -->
-       <dir name="XUL">
-        <file role="php" name="Document.php"/>
-        <file role="php" name="Element.php"/>
-        <file role="php" name="Parser.php"/>
-        <dir name="Element">
-         <file role="php" name="Action.php"/>
-         <file role="php" name="Arrowscrollbox.php"/>
-         <file role="php" name="Autorepeatbutton.php"/>
-         <file role="php" name="Box.php"/>
-         <file role="php" name="Broadcaster.php"/>
-         <file role="php" name="Broadcasterset.php"/>
-         <file role="php" name="Browser.php"/>
-         <file role="php" name="Button.php"/>
-         <file role="php" name="Caption.php"/>
-         <file role="php" name="Checkbox.php"/>
-         <file role="php" name="Colorpicker.php"/>
-         <file role="php" name="Column.php"/>
-         <file role="php" name="Columns.php"/>
-         <file role="php" name="Deck.php"/>
-         <file role="php" name="Description.php"/>
-         <file role="php" name="Dialog.php"/>
-         <file role="php" name="Dialogheader.php"/>
-         <file role="php" name="Editor.php"/>
-         <file role="php" name="Grid.php"/>
-         <file role="php" name="Grippy.php"/>
-         <file role="php" name="Groupbox.php"/>
-         <file role="php" name="Hbox.php"/>
-         <file role="php" name="Html.php"/>
-         <file role="php" name="Iframe.php"/>
-         <file role="php" name="Image.php"/>
-         <file role="php" name="Label.php"/>
-         <file role="php" name="Listbox.php"/>
-         <file role="php" name="Listcell.php"/>
-         <file role="php" name="Listcol.php"/>
-         <file role="php" name="Listcols.php"/>
-         <file role="php" name="Listhead.php"/>
-         <file role="php" name="Listheader.php"/>
-         <file role="php" name="Listitem.php"/>
-         <file role="php" name="Menu.php"/>
-         <file role="php" name="Menubar.php"/>
-         <file role="php" name="Menuitem.php"/>
-         <file role="php" name="Menulist.php"/>
-         <file role="php" name="Menupopup.php"/>
-         <file role="php" name="Menuseparator.php"/>
-         <file role="php" name="Popup.php"/>
-         <file role="php" name="Popupset.php"/>
-         <file role="php" name="Progressmeter.php"/>
-         <file role="php" name="Radio.php"/>
-         <file role="php" name="Radiogroup.php"/>
-         <file role="php" name="Row.php"/>
-         <file role="php" name="Rows.php"/>
-         <file role="php" name="Script.php"/>
-         <file role="php" name="Separator.php"/>
-         <file role="php" name="Spacer.php"/>
-         <file role="php" name="Splitter.php"/>
-         <file role="php" name="Stack.php"/>
-         <file role="php" name="Statusbar.php"/>
-         <file role="php" name="Statusbarpanel.php"/>
-         <file role="php" name="Tab.php"/>
-         <file role="php" name="Tabbox.php"/>
-         <file role="php" name="Tabpanel.php"/>
-         <file role="php" name="Tabpanels.php"/>
-         <file role="php" name="Tabs.php"/>
-         <file role="php" name="Textbox.php"/>
-         <file role="php" name="Toolbar.php"/>
-         <file role="php" name="Toolbarbutton.php"/>
-         <file role="php" name="Toolbarseparator.php"/>
-         <file role="php" name="Toolbox.php"/>
-         <file role="php" name="Tooltip.php"/>
-         <file role="php" name="Tree.php"/>
-         <file role="php" name="Treecell.php"/>
-         <file role="php" name="Treechildren.php"/>
-         <file role="php" name="Treecol.php"/>
-         <file role="php" name="Treecols.php"/>
-         <file role="php" name="Treeitem.php"/>
-         <file role="php" name="Treerow.php"/>
-         <file role="php" name="Vbox.php"/>
-         <file role="php" name="Window.php"/>
-        </dir> <!-- XUL/Element -->
-       </dir> <!-- XUL -->
-       <file role="php" name="XUL.php"/>
-      </dir> <!-- / -->
-    </filelist>
-  </release>
-  <changelog>
-    <release>
-      <version>0.5</version>
-      <date>2004-02-23</date>
-      <license>PHP License</license>
-      <state>beta</state>
-      <notes>inital proposal</notes>
-    </release>
-    <release>
-      <version>0.5.1</version>
-      <date>2004-02-29</date>
-      <license>PHP License</license>
-      <state>beta</state>
-      <notes>renamed clone() to cloneElement(), 
-changed attributes, children and cdata to public properties, 
-added toXML(), 
-getElementById() returns false if node is not found, 
-removed some unneeded properties,
-added some small docs</notes>
-    </release>
-    <release>
-      <version>0.5.3</version>
-      <date>2004-02-29</date>
-      <license>PHP License</license>
-      <state>beta</state>
-      <notes>renamed children to childNodes, 
-renamed addChild() to appendChild(), 
-added getElementsByTagname(), 
-added getDebug() and showDebug(), 
-elementName is now public,</notes>
-    </release>
-    <release>
-      <version>0.6</version>
-      <date>2004-03-09</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>first public PEAR release</notes>
-    </release>
-    <release>
-      <version>0.6.0</version>
-      <date>2004-03-15</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>first public PEAR release</notes>
-    </release>
-    <release>
-      <version>0.7.0</version>
-      <date>2004-03-21</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>added XML_XUL::loadString(),
-added XML_XUL::loadFile(),
-added XML_XUL_Parser class</notes>
-    </release>
-    <release>
-      <version>0.8.0</version>
-      <date>2004-03-30</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>added Menulist,
-fixed script element,
-added addScript() to Window element,
-made root a public property of the document (bug #1081),
-document is now able to create any element object, regardless if there's a PHP class for it (bug #1082) (thanks to Alan B. Knowles)</notes>
-    </release>
-    <release>
-      <version>0.8.1</version>
-      <date>2004-06-26</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>XML_XUL now works with PHP5,
-fixed bug #1255,
-improved cloneElement() to allow cloning of complete subtrees</notes>
-    </release>
-  </changelog>
+improved cloneElement() to allow cloning of complete subtrees
+    </notes>
+   </release>
+   <release>
+    <version>0.8.2</version>
+    <date>2005-03-20</date>
+    <license>PHP License</license>
+    <state>alpha</state>
+    <notes>- fixed several notices when working with E_ALL,
+- fixed typo in Treecell element
+- added new parameter for encoding in createDocument() (Request #3830)
+    </notes>
+   </release>
+ </changelog>
 </package>

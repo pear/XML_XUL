@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.8.1';
+$version = '0.8.2';
 
 /**
  * current state
@@ -29,9 +29,9 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-XML_XUL now works with PHP5,
-fixed bug #1255,
-improved cloneElement() to allow cloning of complete subtrees
+- fixed several notices when working with E_ALL,
+- fixed typo in Treecell element
+- added new parameter for encoding in createDocument() (Request #3830)
 EOT;
 
 /**
@@ -53,7 +53,7 @@ $result = $package->setOptions(array(
     'state'             => $state,
     'license'           => 'PHP License',
     'filelistgenerator' => 'cvs',
-    'ignore'            => array('package.php', 'package.xml'),
+    'ignore'            => array('package.php', 'package.xml', 'package2.xml'),
     'notes'             => $notes,
     'simpleoutput'      => true,
     'baseinstalldir'    => 'XML',
