@@ -42,6 +42,10 @@ $radiog->addRadio( 'This is selected', array( 'value' => 'foo', 'selected' => 't
 $radios = &$doc->getElementsByTagname('radio');
 $radios[0]->setAttribute('label', 'This has been changed.');
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
+
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
     $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );

@@ -33,6 +33,9 @@ $radiog->addRadio( 'This is foo', 'foo' );
 $radiog->addRadio( 'This is bar', 'bar' );
 $radiog->addRadio( 'This is selected', array( 'value' => 'foo', 'selected' => 'true' ) );
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';

@@ -42,6 +42,10 @@ $bar2->addButton( array( 'label' => 'Button 4' ) );
 
 $gbox->appendChild( $box );
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
+
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
     $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );

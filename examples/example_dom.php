@@ -39,6 +39,10 @@ $box->appendChild($btn6);
 $win->addDescription( 'These buttons have been created with a "for" loop in PHP and button 3 has been changed after the creation.' );
 $win->addDescription( 'Furthermore the last button is a clone of button 3 before it has been modified.' );
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
+
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
     $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );

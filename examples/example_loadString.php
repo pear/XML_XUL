@@ -35,6 +35,10 @@ $box3->setCaption('Cloned non-recursive');
 $win->appendChild($box2);
 $win->appendChild($box3);
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
+
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
     $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );

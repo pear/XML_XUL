@@ -33,6 +33,10 @@ $win->appendChild($p);
 $html   = &$doc->createHtmlRaw( '<html:p>This is also HTML, including a <html:a href="http://pear.php.net">link</html:a>.</html:p>' );
 $win->appendChild($html);
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
+
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
     $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );

@@ -35,6 +35,10 @@ $box->addDescription( '...or undetermined.' );
 $meter2 = &$doc->createElement( 'Progressmeter', array( 'mode' => 'undetermined', 'height' => 20 ) );
 $box->appendChild( $meter2 );
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
+
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
     $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );

@@ -18,6 +18,10 @@ $doc    = &XML_XUL::createDocument();
 $tb     = &$doc->createElement( 'Textbox', array( 'id' => 'name', 'size' => 20, 'align' => 'bar' ) );
 $doc->addRoot($tb);
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
+
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
     $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );

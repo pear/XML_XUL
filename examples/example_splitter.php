@@ -42,6 +42,9 @@ $gbox->appendChild( $splitter2 );
 
 $gbox->appendChild( $doc->createElement( 'Iframe', array( 'src' => 'http://bugs.php.net', 'height' => 400, 'width' => 250 ) ) );
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';

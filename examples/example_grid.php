@@ -63,8 +63,9 @@ $jla = array(
              );
 $grid->addRows($jla);
 
-
-
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';

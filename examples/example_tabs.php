@@ -29,6 +29,10 @@ $browser2 = &$doc->createElement('browser', array('width' => 595, 'height'=> 390
 $tabbox->addTab( 'PECL', $browser1 );
 $tabbox->addTab( 'PEAR', $browser2 );
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
+
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
     $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );

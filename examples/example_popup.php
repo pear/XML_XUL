@@ -34,6 +34,10 @@ $popup = &$doc->createElement( 'Popup', array( 'id' => 'myPopup' ) );
 $popup->addDescription('This is just some text, but you could place anything in a popup.');
 $set->appendChild($popup);
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
+
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
     $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );

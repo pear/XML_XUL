@@ -35,6 +35,10 @@ $box3->appendChild( $doc->createElement( 'Textbox', array( 'id' => 'comment', 's
 $box->appendChild( $box2 );
 $box->appendChild( $box3 );
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
+
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
     $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );

@@ -40,6 +40,9 @@ $box2->appendChild($pear);
 $box2->appendChild($php);
 $box2->appendChild($pecl);
 
+if (!isset($_GET['mode'])) {
+	$_GET['mode'] = 'default';
+}
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
