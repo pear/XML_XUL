@@ -15,6 +15,7 @@
 // +----------------------------------------------------------------------+
 // | Authors: Stephan Schmidt <schst@php.net>                             |
 // +----------------------------------------------------------------------+
+// $Id$
 
 /**
  * XML/XUL/Element.php
@@ -75,6 +76,14 @@ class XML_XUL_Element
     * @var  string
     */
     var $_ns;
+
+   /**
+    * namespace for HTML elements
+    *
+    * @access private
+    * @var    string
+    */
+    var $_htmlNs = null;
 
    /**
     * attributes of the element
