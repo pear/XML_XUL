@@ -84,5 +84,35 @@ class XML_XUL
         $doc = &new XML_XUL_Document( $filename, $ns );
         return $doc;
     }
+
+   /**
+    * load a XUL document from file
+    *
+    * @access   public
+    * @param    string  filename
+    */
+    function &loadFile( $filename )
+    {
+        require_once 'XML/XUL/Parser.php';
+
+        $parser = &new XML_XUL_Parser();
+        $doc    = $parser->loadFile( $filename );
+        return $doc;
+    }
+
+   /**
+    * load a XUL document from a string
+    *
+    * @access   public
+    * @param    string  filename
+    */
+    function &loadString( $filename, $ns = null )
+    {
+        require_once 'XML/XUL/Parser.php';
+
+        $parser = &new XML_XUL_Parser();
+        $doc    = $parser->loadString( $filename );
+        return $doc;
+    }
 }
 ?>

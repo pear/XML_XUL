@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window title="Example for PEAR::XML_XUL" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <groupbox orient="vertical">
+    <caption label="Loading a XUL document from File" />
+    <description>This document has been loaded and the browser has been cloned.</description>
+    <hbox id="box">
+     <browser id="pear" src="http://pear.php.net" width="290" height="400"/>
+    </hbox>
+  </groupbox>
+</window>

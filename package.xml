@@ -18,7 +18,7 @@ be created with these objects.</description>
   </maintainers>
   <release>
     <version>0.6.0</version>
-    <date>2004-03-09</date>
+    <date>2004-03-15</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>first public PEAR release</notes>
@@ -161,6 +161,7 @@ be created with these objects.</description>
     <provides type="class" name="XML_XUL" />
     <provides type="function" name="XML_XUL::apiVersion" />
     <provides type="function" name="XML_XUL::createDocument" />
+    <provides type="function" name="XML_XUL::loadFile" />
     <filelist>
       <file role="doc" baseinstalldir="XML" md5sum="9be3f6bd9bafb815b011362a1c20436f" name="examples/example_browser.php"/>
       <file role="doc" baseinstalldir="XML" md5sum="9f3fc850d0f6a90f69a24f6b213c6a6e" name="examples/example_dom.php"/>
@@ -254,7 +255,8 @@ be created with these objects.</description>
       <file role="php" baseinstalldir="XML" md5sum="be19e3110002fa9a0945ae3fb39fd4b7" name="XUL/Element/Treerow.php"/>
       <file role="php" baseinstalldir="XML" md5sum="7cad7a111c4abd69ed976efe4f3313d8" name="XUL/Element/Vbox.php"/>
       <file role="php" baseinstalldir="XML" md5sum="1b186d7219b2b802f195d7fb38f572d1" name="XUL/Element/Window.php"/>
-      <file role="php" baseinstalldir="XML" md5sum="6b65ccc123a57bf759d7b3422419b4ed" name="XUL.php"/>
+      <file role="php" baseinstalldir="XML" md5sum="39c903c971055c9cbbc210e66643c46a" name="XUL.php"/>
+      <file role="php" baseinstalldir="XML" name="XUL/Parser.php"/>
     </filelist>
   </release>
   <changelog>
@@ -297,7 +299,7 @@ elementName is now public,</notes>
     </release>
     <release>
       <version>0.6.0</version>
-      <date>2004-03-09</date>
+      <date>2004-03-15</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>first public PEAR release</notes>
