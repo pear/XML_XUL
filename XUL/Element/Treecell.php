@@ -96,7 +96,7 @@ class XML_XUL_Element_Treecell extends XML_XUL_Element
                                                    'required' => false,
                                                    'type'     => 'string',
                                                 ),
-                                'resoucre' => array(
+                                'resource' => array(
                                                    'required' => false,
                                                    'type'     => 'string',
                                                 ),
