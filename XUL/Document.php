@@ -276,19 +276,26 @@ class XML_XUL_Document
     {
         $classname = sprintf( 'XML_XUL_Element_%s', $name );
         $file      = sprintf( 'XML/XUL/Element/%s.php', ucfirst($name) );
-        require_once $file;
-
-        $el    =   &new $classname( $attributes, $cdata );
-        $el->setNamespace($this->_ns);
-        $el->setDocument($this);
-        $el->replaceEntities = $replaceEntities;
-
-        if ($this->_autoValidate) {
-            $result = $el->validateAttributes();
-            if (PEAR::isError($result)) {
-                return $result;
-            }
+        if( !@include_once $file )
+        {
+            $el    =   &new XML_XUL_Element( $attributes, $cdata );
+            $el->elementName = strtolower( $name );
         }
+        else
+        {
+            $el    =   &new $classname( $attributes, $cdata );
+        }
+
+            $el->setNamespace($this->_ns);
+            $el->setDocument($this);
+            $el->replaceEntities = $replaceEntities;
+
+            if ($this->_autoValidate) {
+                $result = $el->validateAttributes();
+                if (PEAR::isError($result)) {
+                    return $result;
+                }
+            }
         
         return $el;
     }
