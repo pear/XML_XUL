@@ -247,7 +247,12 @@ class XML_XUL_Document
          * add the DTD
          */
         if ($this->_dtd != null) {
-            $doc .= XML_Util::getDocTypeDeclaration( $this->root->getTagname(), $this->_dtd ) . "\n";
+            if (is_object($this->root)) {
+                $root = $this->root->getTagname();
+            } else {
+                $root = '';
+            }
+            $doc .= XML_Util::getDocTypeDeclaration( $root, $this->_dtd ) . "\n";
         }
         
         /**
