@@ -89,7 +89,7 @@ class XML_XUL_Element_Listbox extends XML_XUL_Element
     * @access   private
     * @var      integer
     */
-    var $_columns   = null;
+    var $_columns;
 
    /**
     * set the amount of columns
