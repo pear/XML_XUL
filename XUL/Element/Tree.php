@@ -132,12 +132,20 @@ class XML_XUL_Element_Tree extends XML_XUL_Element
         
         $atts = func_get_args();
         array_shift($atts);
+        $sizeable = false;
+        if (is_bool($atts[0])) {
+            $sizeable = $atts[0];
+            array_shift($atts);
+        }
         
         for ($i=0; $i<$columns; $i++) {
             if (!isset($atts[$i])) {
                 $atts[$i] = array();
             }
             $this->childNodes[0]->appendChild( $this->_doc->createElement('Treecol', $atts[$i]));
+            if ($sizeable) {
+                $this->childNodes[0]->appendChild( $this->_doc->createElement('Splitter', array('collapse' => 'before', 'class' => 'tree-splitter')));
+            }
         }
     }
 
