@@ -83,6 +83,14 @@ class XML_XUL_Document
     var $_htmlNs;
 
    /**
+    * overlays that should be included
+    *
+    * @access   private
+    * @var      array
+    */
+    var $_overlays      =   array();
+
+   /**
     * stylesheets that should be included
     *
     * @access   private
@@ -140,6 +148,17 @@ class XML_XUL_Document
     function setHtmlNamespace( $ns )
     {
         $this->_htmlNs = $ns;
+    }
+
+   /**
+    * add an overlay
+    *
+    * @access   public
+    * @params   string  uri of overlay
+    */
+    function addOverlay( $uri )
+    {
+        array_push($this->_overlays, $uri);
     }
 
    /**
@@ -263,6 +282,14 @@ class XML_XUL_Document
                 $root = '';
             }
             $doc .= XML_Util::getDocTypeDeclaration( $root, $this->_dtd ) . "\n";
+        }
+
+        /**
+         * add overlays
+         */
+        $cnt = count($this->_overlays);
+        for ($i=0; $i<$cnt; $i++) {
+            $doc .= sprintf('<?xul-overlay href="%s"?>', $this->_overlays[$i]). "\n";
         }
         
         /**
