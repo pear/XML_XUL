@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0" packagerversion="1.4.0a7">
+<package version="1.0" packagerversion="1.5.0">
  <name>XML_XUL</name>
  <summary>Class to build Mozilla XUL applications.</summary>
  <description>The XML User Interface Language (XUL) is a markup language for describing user interfaces.
@@ -14,15 +14,22 @@ XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP
    <email>schst@php.net</email>
    <role>lead</role>
   </maintainer>
+  <maintainer>
+   <user>amir</user>
+   <name>Amir Mohammad Saied</name>
+   <email>amir@php.net</email>
+   <role>lead</role>
+  </maintainer>
   </maintainers>
  <release>
-  <version>0.8.2</version>
-  <date>2005-03-20</date>
+  <version>0.8.3</version>
+  <date>2007-02-02</date>
   <license>PHP License</license>
   <state>alpha</state>
-  <notes>- fixed several notices when working with E_ALL,
-- fixed typo in Treecell element
-- added new parameter for encoding in createDocument() (Request #3830)
+  <notes>
+- Overlays support added
+- fixed #2184, listbox element numbers
+- Resizable columns added
   </notes>
   <deps>
    <dep type="pkg" rel="ge" version="0.5.2" optional="no">XML_Util</dep>
@@ -210,7 +217,7 @@ added XML_XUL_Parser class
 fixed script element,
 added addScript() to Window element,
 made root a public property of the document (bug #1081),
-document is now able to create any element object, regardless if there's a PHP class for it (bug #1082) (thanks to Alan B. Knowles)
+document is now able to create any element object, regardless if there&apos;s a PHP class for it (bug #1082) (thanks to Alan B. Knowles)
     </notes>
    </release>
    <release>
@@ -231,6 +238,16 @@ improved cloneElement() to allow cloning of complete subtrees
     <notes>- fixed several notices when working with E_ALL,
 - fixed typo in Treecell element
 - added new parameter for encoding in createDocument() (Request #3830)
+    </notes>
+   </release>
+   <release>
+    <version>0.8.3</version>
+    <date>2007-02-02</date>
+    <license>PHP License</license>
+    <state>alpha</state>
+    <notes>- Overlays support added
+- fixed #2184, listbox element numbers
+- Resizable columns added
     </notes>
    </release>
  </changelog>

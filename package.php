@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.8.2';
+$version = '0.8.3';
 
 /**
  * current state
@@ -29,9 +29,9 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- fixed several notices when working with E_ALL,
-- fixed typo in Treecell element
-- added new parameter for encoding in createDocument() (Request #3830)
+- Overlays support added
+- fixed #2184, listbox element numbers
+- Resizable columns added
 EOT;
 
 /**
@@ -69,6 +69,7 @@ if (PEAR::isError($result)) {
     die();
 }
 
+$package->addMaintainer('amir' , 'lead', 'Amir Mohammad Saied', 'amir@php.net');
 $package->addMaintainer('schst', 'lead', 'Stephan Schmidt', 'schst@php.net');
 
 $package->addDependency('PEAR', '', 'has', 'pkg', false);
