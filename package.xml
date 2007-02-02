@@ -105,6 +105,7 @@ XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP
       <file role="php" name="Menulist.php"/>
       <file role="php" name="Menupopup.php"/>
       <file role="php" name="Menuseparator.php"/>
+      <file role="php" name="Overlay.php"/>
       <file role="php" name="Popup.php"/>
       <file role="php" name="Popupset.php"/>
       <file role="php" name="Progressmeter.php"/>

@@ -24,7 +24,7 @@ XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP
   <active>yes</active>
  </lead>
  <date>2007-02-02</date>
- <time>19:03:46</time>
+ <time>20:38:41</time>
  <version>
   <release>0.8.3</release>
   <api>0.8.3</api>
@@ -107,6 +107,7 @@ XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP
      <file baseinstalldir="XML" name="Menulist.php" role="php" />
      <file baseinstalldir="XML" name="Menupopup.php" role="php" />
      <file baseinstalldir="XML" name="Menuseparator.php" role="php" />
+     <file baseinstalldir="XML" name="Overlay.php" role="php" />
      <file baseinstalldir="XML" name="Popup.php" role="php" />
      <file baseinstalldir="XML" name="Popupset.php" role="php" />
      <file baseinstalldir="XML" name="Progressmeter.php" role="php" />
