@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -41,14 +41,14 @@
  * <code>
  * require_once 'XML/XUL.php';
  *
- * $doc = &XML_XUL::createDocument( 'myXUL.xml', 'myNs' );
+ * $doc = XML_XUL::createDocument( 'myXUL.xml', 'myNs' );
  * </code>
  *
  * The document object provides methods to create and
  * add any element you like:
  *
  * <code>
- * $win = &$doc->createElement('window', array('title'=> 'Example for PEAR::XML_XUL'));
+ * $win = $doc->createElement('window', array('title'=> 'Example for PEAR::XML_XUL'));
  * $doc->addRoot($win);
  * </code>
  *
@@ -78,11 +78,11 @@ class XML_XUL
     * @param    string  namespace for XUL elements
     * @param    string  encoding of the document
     */
-    function &createDocument( $filename = null, $ns = null, $encoding = null )
+    function createDocument( $filename = null, $ns = null, $encoding = null )
     {
         require_once 'XML/XUL/Document.php';
 
-        $doc = &new XML_XUL_Document( $filename, $ns, $encoding );
+        $doc = new XML_XUL_Document( $filename, $ns, $encoding );
         return $doc;
     }
 
@@ -92,11 +92,11 @@ class XML_XUL
     * @access   public
     * @param    string  filename
     */
-    function &loadFile( $filename )
+    function loadFile( $filename )
     {
         require_once 'XML/XUL/Parser.php';
 
-        $parser = &new XML_XUL_Parser();
+        $parser = new XML_XUL_Parser();
         $doc    = $parser->loadFile( $filename );
         return $doc;
     }
@@ -107,13 +107,12 @@ class XML_XUL
     * @access   public
     * @param    string  filename
     */
-    function &loadString( $filename, $ns = null )
+    function loadString( $filename, $ns = null )
     {
         require_once 'XML/XUL/Parser.php';
 
-        $parser = &new XML_XUL_Parser();
+        $parser = new XML_XUL_Parser();
         $doc    = $parser->loadString( $filename );
         return $doc;
     }
 }
-?>
