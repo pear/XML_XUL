@@ -153,7 +153,7 @@ XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP
  <dependencies>
   <required>
    <php>
-    <min>4.2.0</min>
+    <min>5.0.0</min>
    </php>
    <pearinstaller>
     <min>1.4.0b1</min>
@@ -167,10 +167,6 @@ XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP
     <name>XML_Parser</name>
     <channel>pear.php.net</channel>
     <min>1.1.0</min>
-   </package>
-   <package>
-    <name>PEAR</name>
-    <channel>pear.php.net</channel>
    </package>
   </required>
  </dependencies>
