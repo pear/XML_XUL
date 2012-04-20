@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -294,7 +294,7 @@ class XML_XUL_Element
     * @param    string  cdata of the element (used by caption, et al)
     * @param    boolean autobuild flag
     */
-    function XML_XUL_Element( $attributes = array(), $cdata = null, $autoBuild = true )
+    function __construct( $attributes = array(), $cdata = null, $autoBuild = true )
     {
         $this->attributes = $attributes;
         $this->cdata      = $cdata;
@@ -306,9 +306,9 @@ class XML_XUL_Element
     * @access   public
     * @param    object XML_XUL_Document     document
     */
-    function setDocument( &$doc )
+    function setDocument( $doc )
     {
-        $this->_doc      = &$doc;
+        $this->_doc      = $doc;
     }
 
    /**
@@ -413,9 +413,9 @@ class XML_XUL_Element
     * @access   public
     * @param    object
     */
-    function appendChild( &$obj )
+    function appendChild( $obj )
     {
-        $this->childNodes[] = &$obj;
+        $this->childNodes[] = $obj;
     }
 
    /**
@@ -489,12 +489,12 @@ class XML_XUL_Element
     * @param    boolean     whether children should be cloned, too.
     * @return   object XML_XUL_Element
     */
-    function &cloneElement( $recursive = false )
+    function cloneElement( $recursive = false )
     {
         $atts = $this->attributes;
         unset($atts['id']);
         
-        $copy = &$this->_doc->createElement($this->elementName, $atts, $this->cdata);
+        $copy = $this->_doc->createElement($this->elementName, $atts, $this->cdata);
         if ($recursive !== true) {
             return $copy;
         }
@@ -517,7 +517,7 @@ class XML_XUL_Element
     * @param    string  id
     * @return   object XML_XUL_Element or false if the element does not exist
     */
-    function &getElementById($id)
+    function getElementById($id)
     {
         if ($this->getId() == $id) {
             return $this;
@@ -530,7 +530,7 @@ class XML_XUL_Element
         }
 
         for ($i=0; $i<$cnt; $i++) {
-            $result = &$this->childNodes[$i]->getElementById($id);
+            $result = $this->childNodes[$i]->getElementById($id);
             if ($result === false) {
                 continue;
             }
@@ -546,11 +546,11 @@ class XML_XUL_Element
     * @param    string  id
     * @return   array   array containing XML_XUL_Element objects
     */
-    function &getElementsByTagname($tagname)
+    function getElementsByTagname($tagname)
     {
         $nodeList = array();
         if ($this->elementName == $tagname) {
-            $nodeList[] = &$this;
+            $nodeList[] = $this;
         }
 
         $cnt = count($this->childNodes);
@@ -560,10 +560,10 @@ class XML_XUL_Element
         }
 
         for ($i=0; $i<$cnt; $i++) {
-            $tmp = &$this->childNodes[$i]->getElementsByTagname($tagname);
+            $tmp = $this->childNodes[$i]->getElementsByTagname($tagname);
             $cnt2 = count($tmp);
             for($j=0; $j<$cnt2; $j++) {
-                $nodeList[] = &$tmp[$j];
+                $nodeList[] = $tmp[$j];
             }
         }
         return $nodeList;
@@ -635,7 +635,7 @@ class XML_XUL_Element
     * @access   public
     * @return   object XML_XUL_Element
     */
-    function &firstChild()
+    function firstChild()
     {
         if (isset($this->childNodes[0])) {
             return $this->childNodes[0];
@@ -652,7 +652,7 @@ class XML_XUL_Element
     * @access   public
     * @return   object XML_XUL_Element
     */
-    function &lastChild()
+    function lastChild()
     {
         $cnt = count($this->childNodes);
         if ($cnt > 0) {
@@ -674,9 +674,9 @@ class XML_XUL_Element
     * @return   object XML_XUL_Element_Description
     * @see      XML_XUL_Element_Description
     */
-    function &addDescription($text, $atts = array())
+    function addDescription($text, $atts = array())
     {
-        $desc = &$this->_doc->createElement('Description', $atts, $text);
+        $desc = $this->_doc->createElement('Description', $atts, $text);
         $this->appendChild($desc);
         return $desc;
     }
@@ -736,4 +736,4 @@ class XML_XUL_Element
         return $debug;
     }
 }
-?>
+

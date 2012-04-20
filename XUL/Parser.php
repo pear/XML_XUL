@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -88,7 +88,7 @@ class XML_XUL_Parser extends XML_Parser
     *
     * @access public
     */
-    function XML_XUL_Parser()
+    function __construct()
     {
         $this->folding = false;
     }
@@ -100,11 +100,11 @@ class XML_XUL_Parser extends XML_Parser
     * @param  string  filename of the file to parse
     * @return object XML_XUL_Document
     */
-    function &loadFile( $filename )
+    function loadFile( $filename )
     {
         require_once 'XML/XUL/Document.php';
 
-        $this->_doc = &new XML_XUL_Document( $filename );
+        $this->_doc = new XML_XUL_Document( $filename );
 
         $this->XML_Parser();
         $this->setInputFile($filename);
@@ -122,11 +122,11 @@ class XML_XUL_Parser extends XML_Parser
     * @param  string    string to parse
     * @return object XML_XUL_Document
     */
-    function &loadString( $string )
+    function loadString( $string )
     {
         require_once 'XML/XUL/Document.php';
 
-        $this->_doc = &new XML_XUL_Document();
+        $this->_doc = new XML_XUL_Document();
 
         $this->XML_Parser();
         $result = $this->parseString($string);
@@ -205,4 +205,3 @@ class XML_XUL_Parser extends XML_Parser
         $this->_cData[$this->_depth] .= $cdata;
     }
 }
-?>
