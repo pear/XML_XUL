@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -105,7 +105,7 @@ class XML_XUL_Element_Listbox extends XML_XUL_Element
     function setColumns( $columns )
     {
         $this->_columns = $columns;
-        $columnObj = &$this->_doc->createElement('Listcols');
+        $columnObj = $this->_doc->createElement('Listcols');
         
         $atts = func_get_args();
         array_shift($atts);
@@ -131,7 +131,7 @@ class XML_XUL_Element_Listbox extends XML_XUL_Element
     */
     function setHeaders( $headers )
     {
-        $headerObj = &$this->_doc->createElement('Listhead');
+        $headerObj = $this->_doc->createElement('Listhead');
         
         for ($i=0; $i<count($headers); $i++) {
             if (!is_array($headers[$i])) {
@@ -161,10 +161,10 @@ class XML_XUL_Element_Listbox extends XML_XUL_Element
         if ($this->_columns == null) {
             $atts['label'] = $label;
             $atts['value'] = $value;
-            $obj = &$this->_doc->createElement( 'Listitem', $atts );
+            $obj = $this->_doc->createElement( 'Listitem', $atts );
         } else {
             $atts['value'] = $value;
-            $obj = &$this->_doc->createElement( 'Listitem', $atts );
+            $obj = $this->_doc->createElement( 'Listitem', $atts );
             for ($i=0; $i<$this->_columns; $i++) {
                 $cellAtts['label'] = $label[$i];
                 $obj->appendChild( $this->_doc->createElement( 'Listcell', $cellAtts ) );

@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -89,12 +89,12 @@ class XML_XUL_Element_Menulist extends XML_XUL_Element
     * @param    array   attributes of the popup
     * @return   object  XML_XUL_Element_Menupopup
     */
-    function &preparePopup( $pop = array() )
+    function preparePopup( $pop = array() )
     {
         if (isset($this->childNodes[0])) {
             return $this->childNodes[0];
         }
-        $pop = &$this->_doc->createElement('Menupopup', $pop);
+        $pop = $this->_doc->createElement('Menupopup', $pop);
         $this->appendChild($pop);
         return $pop;
     }
@@ -106,14 +106,14 @@ class XML_XUL_Element_Menulist extends XML_XUL_Element
     * @param    array   attributes of the menu
     * @return   object  XML_XUL_Element_Menu
     */
-    function &addSubmenu( $menu = array() )
+    function addSubmenu( $menu = array() )
     {
         if (!is_object($this->childNodes[0])) {
             $this->preparePopup();
         }
         
         if (!is_object($menu)) {
-            $menu = &$this->_doc->createElement( 'Menu', $menu );
+            $menu = $this->_doc->createElement( 'Menu', $menu );
         }
         $this->childNodes[0]->appendChild( $menu );
         return $menu;
@@ -126,14 +126,14 @@ class XML_XUL_Element_Menulist extends XML_XUL_Element
     * @param    array   attributes of the item
     * @return   object  XML_XUL_Element_Menuitem
     */
-    function &addItem( $item = array() )
+    function addItem( $item = array() )
     {
         if (!is_object($this->childNodes[0])) {
             $this->preparePopup();
         }
         
         if (!is_object($item)) {
-            $item = &$this->_doc->createElement( 'Menuitem', $item );
+            $item = $this->_doc->createElement( 'Menuitem', $item );
         }
         $this->childNodes[0]->appendChild( $item );
         return $item;

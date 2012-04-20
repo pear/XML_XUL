@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -71,7 +71,7 @@ class XML_XUL_Element_Groupbox extends XML_XUL_Element
     function setCaption( $caption, $atts = array() )
     {
         $atts['label'] = $caption;
-        $caption = &$this->_doc->createElement('Caption', $atts);
+        $caption = $this->_doc->createElement('Caption', $atts);
         
         $this->appendChild($caption);
     }

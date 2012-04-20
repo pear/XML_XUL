@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -65,11 +65,11 @@ class XML_XUL_Element_Menubar extends XML_XUL_Element
     * @param    array   attributes of the Menu
     * @return   object  XML_XUL_Element_Menu
     */
-    function &addMenu( $menu = array() )
+    function addMenu( $menu = array() )
     {
         if( !is_object( $menu ) )
         {
-            $menu = &$this->_doc->createElement( 'Menu', $menu );
+            $menu = $this->_doc->createElement( 'Menu', $menu );
         }
         $this->appendChild( $menu );
         return $menu;

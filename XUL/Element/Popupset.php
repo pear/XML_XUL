@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -68,12 +68,12 @@ class XML_XUL_Element_Popupset extends XML_XUL_Element
     * @param    array   optional attributes for the popup
     * @return   object XML_XUL_Element_Popup
     */
-    function &addPopup( $id, &$content, $atts = array() )
+    function addPopup( $id, $content, $atts = array() )
     {
         $atts['id'] = $id;
-        $popup = &$this->_doc->createElement( 'Popup', $atts );
+        $popup = $this->_doc->createElement( 'Popup', $atts );
         if (!is_object($content)) {
-            $content = &$this->_doc->createElement('Description', array(), $content);
+            $content = $this->_doc->createElement('Description', array(), $content);
         }
         $popup->appendChild($content);
         $this->appendChild($popup);

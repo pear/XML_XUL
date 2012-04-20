@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -76,7 +76,7 @@ class XML_XUL_Element_Grid extends XML_XUL_Element
     function setColumns( $columns )
     {
         $this->_columns = $columns;
-        $this->childNodes[0] = &$this->_doc->createElement('Columns');
+        $this->childNodes[0] = $this->_doc->createElement('Columns');
         
         $atts = func_get_args();
         array_shift($atts);
@@ -96,15 +96,15 @@ class XML_XUL_Element_Grid extends XML_XUL_Element
     * @param    array   array containing the cells
     * @param    array   attributes for the row tag
     */
-    function addRow( &$row, $atts = array() )
+    function addRow( $row, $atts = array() )
     {
         if (!isset($this->childNodes[1])) {
-            $this->childNodes[1] = &$this->_doc->createElement('Rows');
+            $this->childNodes[1] = $this->_doc->createElement('Rows');
         }
-        $rowObj = &$this->_doc->createElement('Row', $atts);
+        $rowObj = $this->_doc->createElement('Row', $atts);
         for ($i=0; $i<$this->_columns; $i++) {
             if (!is_object($row[$i])) {
-                $row[$i] = &$this->_doc->createElement('Description', array(), $row[$i]);
+                $row[$i] = $this->_doc->createElement('Description', array(), $row[$i]);
             }
             $rowObj->appendChild($row[$i]);
         }
@@ -118,7 +118,7 @@ class XML_XUL_Element_Grid extends XML_XUL_Element
     * @param    array   array containing the rows
     * @param    array   attributes for the row tag
     */
-    function addRows( &$rows, $atts = array() )
+    function addRows( $rows, $atts = array() )
     {
         for ($i=0; $i<count($rows); $i++) {
             $this->addRow($rows[$i], $atts);

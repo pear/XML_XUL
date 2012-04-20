@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -77,20 +77,20 @@ class XML_XUL_Element_Tabbox extends XML_XUL_Element
     * @param    array   optional attributes for the tabpanel
     * @return   object XML_XUL_Element_Tabpanel     the tabpanel that has been created
     */
-    function &addTab( $label, $content = null, $tabAttributes = array(), $panelAttributes = array() )
+    function addTab( $label, $content = null, $tabAttributes = array(), $panelAttributes = array() )
     {
         $tabAttributes['label']    =    $label;
-        $tab   = &$this->_doc->createElement( 'Tab', $tabAttributes );
-        $panel = &$this->_doc->createElement( 'Tabpanel', $tabAttributes );
+        $tab   = $this->_doc->createElement( 'Tab', $tabAttributes );
+        $panel = $this->_doc->createElement( 'Tabpanel', $tabAttributes );
 
         if (is_object($content)) {
             $panel->appendChild($content);
         }
         
         if (!isset($this->childNodes[0])) {
-            $tabs = &$this->_doc->createElement( 'Tabs' );
+            $tabs = $this->_doc->createElement( 'Tabs' );
             $this->appendChild( $tabs );
-            $panels = &$this->_doc->createElement( 'Tabpanels' );
+            $panels = $this->_doc->createElement( 'Tabpanels' );
             $this->appendChild( $panels );
         }
 

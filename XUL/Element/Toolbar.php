@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -82,11 +82,11 @@ class XML_XUL_Element_Toolbar extends XML_XUL_Element
     * @param    array   attributes of the toolbar
     * @return   object  XML_XUL_Element_Toolbarbutton
     */
-    function &addButton( $button = array() )
+    function addButton( $button = array() )
     {
         if( !is_object( $button ) )
         {
-            $button = &$this->_doc->createElement( 'Toolbarbutton', $button );
+            $button = $this->_doc->createElement( 'Toolbarbutton', $button );
         }
         $this->appendChild( $button );
         return $button;
@@ -99,11 +99,11 @@ class XML_XUL_Element_Toolbar extends XML_XUL_Element
     * @param    array   attributes of the toolbar
     * @return   object  XML_XUL_Element_Toolbarseparator
     */
-    function &addSeparator( $sep = array() )
+    function addSeparator( $sep = array() )
     {
         if( !is_object( $sep ) )
         {
-            $sep = &$this->_doc->createElement( 'Toolbarseparator', $sep );
+            $sep = $this->_doc->createElement( 'Toolbarseparator', $sep );
         }
         $this->appendChild( $sep );
         return $sep;

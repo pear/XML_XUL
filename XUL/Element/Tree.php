@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -128,7 +128,7 @@ class XML_XUL_Element_Tree extends XML_XUL_Element
     function setColumns( $columns )
     {
         $this->_columns = $columns;
-        $this->childNodes[0] = &$this->_doc->createElement('Treecols');
+        $this->childNodes[0] = $this->_doc->createElement('Treecols');
         
         $atts = func_get_args();
         array_shift($atts);
@@ -156,7 +156,7 @@ class XML_XUL_Element_Tree extends XML_XUL_Element
     * @param    array   elements for the cells
     * @return   object XML_XUL_Element_Treeitem
     */
-    function &addItem( $cells )
+    function addItem( $cells )
     {
         /**
          * tree has no childNodes
@@ -165,8 +165,8 @@ class XML_XUL_Element_Tree extends XML_XUL_Element
             $this->childNodes[1] = &$this->_doc->createElement('Treechildren');
         }
 
-        $item = &$this->_doc->createElement('Treeitem');
-        $row  = &$this->_doc->createElement('Treerow');
+        $item = $this->_doc->createElement('Treeitem');
+        $row  = $this->_doc->createElement('Treerow');
         
         $item->appendChild($row);
         
