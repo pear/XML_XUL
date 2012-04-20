@@ -159,7 +159,7 @@ XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP
     <min>1.4.0b1</min>
    </pearinstaller>
    <package>
-    <name>XML_Util</name>
+    <name>XML_Util2</name>
     <channel>pear.php.net</channel>
     <min>0.5.2</min>
    </package>

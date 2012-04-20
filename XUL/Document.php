@@ -26,9 +26,9 @@
  */
 
 /**
- * uses XML_Util to create document
+ * uses XML_Util2 to create document
  */
- require_once 'XML/Util.php';
+ require_once 'XML/Util2.php';
  
 /**
  * no filename given
@@ -270,7 +270,8 @@ class XML_XUL_Document
     */
     function serialize()
     {
-        $doc = XML_Util::getXMLDeclaration('1.0', $this->_encoding) . "\n";
+        $util = new XML_Util2();
+        $doc = $util->getXMLDeclaration('1.0', $this->_encoding) . "\n";
 
         /**
          * add the DTD
@@ -281,7 +282,7 @@ class XML_XUL_Document
             } else {
                 $root = '';
             }
-            $doc .= XML_Util::getDocTypeDeclaration( $root, $this->_dtd ) . "\n";
+            $doc .= $util->getDocTypeDeclaration( $root, $this->_dtd ) . "\n";
         }
 
         /**

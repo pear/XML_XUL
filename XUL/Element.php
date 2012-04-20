@@ -439,6 +439,7 @@ class XML_XUL_Element
     */
     function serialize()
     {
+        $util = new XML_Util2();
         $content = '';
         
         if (empty($this->_ns)) {
@@ -451,7 +452,7 @@ class XML_XUL_Element
             if ($this->cdata !== null) {
                 $content = $this->cdata;
                 if ($this->replaceEntities) {
-                    $content = XML_Util::replaceEntities($content);
+                    $content = $util->replaceEntities($content);
                 }
             }
         } else {
@@ -470,7 +471,7 @@ class XML_XUL_Element
             $nsUri = null;
         }
         
-        return XML_Util::createTag(
+        return $util->createTag(
                                     $el,
                                     $this->attributes,
                                     $content,
