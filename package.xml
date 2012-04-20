@@ -164,9 +164,9 @@ XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP
     <min>0.5.2</min>
    </package>
    <package>
-    <name>XML_Parser</name>
+    <name>XML_Parser2</name>
     <channel>pear.php.net</channel>
-    <min>1.1.0</min>
+    <min>0.1.0</min>
    </package>
   </required>
  </dependencies>

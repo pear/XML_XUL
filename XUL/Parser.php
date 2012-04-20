@@ -28,7 +28,7 @@
 /**
  * use XML_Parser to parse the document
  */
-require_once 'XML/Parser.php';
+require_once 'XML/Parser2.php';
  
 /**
  * XML/XUL/Parser.php
@@ -49,7 +49,7 @@ require_once 'XML/Parser.php';
  * @todo     add error management
  * @todo     add support for namespaces using a defaultHandler
  */
-class XML_XUL_Parser extends XML_Parser
+class XML_XUL_Parser extends XML_Parser2
 {
    /**
     * tag stack
@@ -99,6 +99,7 @@ class XML_XUL_Parser extends XML_Parser
     * @access public
     * @param  string  filename of the file to parse
     * @return object XML_XUL_Document
+    * @throws XML_Parser2_Exception
     */
     function loadFile( $filename )
     {
@@ -106,13 +107,9 @@ class XML_XUL_Parser extends XML_Parser
 
         $this->_doc = new XML_XUL_Document( $filename );
 
-        $this->XML_Parser();
         $this->setInputFile($filename);
         $result = $this->parse();
-        if ($this->isError($result)) {
-            return $result;
-        }
-        return $this->_doc;
+         return $this->_doc;
     }
     
    /**
@@ -121,6 +118,7 @@ class XML_XUL_Parser extends XML_Parser
     * @access public
     * @param  string    string to parse
     * @return object XML_XUL_Document
+    * @throws XML_Parser2_Exception
     */
     function loadString( $string )
     {
@@ -128,11 +126,8 @@ class XML_XUL_Parser extends XML_Parser
 
         $this->_doc = new XML_XUL_Document();
 
-        $this->XML_Parser();
+
         $result = $this->parseString($string);
-        if ($this->isError($result)) {
-            return $result;
-        }
         return $this->_doc;
     }
 
@@ -172,7 +167,7 @@ class XML_XUL_Parser extends XML_Parser
         $this->_depth--;
         $def = array_pop($this->_tagStack);
 
-        $el  = &$this->_doc->createElement($def['name'], $def['atts'], $cdata);
+        $el  = $this->_doc->createElement($def['name'], $def['atts'], $cdata);
         
         for ($i = 0; $i < count($def['childNodes']); $i++) {
             $el->appendChild($def['childNodes'][$i]);
