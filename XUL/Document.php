@@ -28,8 +28,8 @@
 /**
  * uses XML_Util2 to create document
  */
- require_once 'XML/Util2.php';
- 
+require_once 'XML/Util2.php';
+require_once 'XML/XUL/Exception.php'; 
 /**
  * no filename given
  */
@@ -240,7 +240,7 @@ class XML_XUL_Document
         }
 
         if (empty($filename)) {
-            return PEAR::raiseError(
+            throw new XML_XUL_Exception(
                                      'No filename specified to write document to.',
                                      XML_XUL_ERROR_NO_FILENAME
                                     );
@@ -249,7 +249,7 @@ class XML_XUL_Document
         $fp =   @fopen( $filename, 'wb' );
         if( !$fp )
         {
-            return PEAR::raiseError(
+            throw new XML_XUL_Exception(
                                      'Could not write destination file.',
                                      XML_XUL_ERROR_NOT_WRITEABLE
                                     );
@@ -332,9 +332,6 @@ class XML_XUL_Document
 
         if ($this->_autoValidate) {
             $result = $el->validateAttributes();
-            if (PEAR::isError($result)) {
-                return $result;
-            }
         }
         
         return $el;

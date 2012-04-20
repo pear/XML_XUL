@@ -17,6 +17,9 @@
 // +----------------------------------------------------------------------+
 // $Id$
 
+require_once 'XML/Util2.php';
+require_once 'XML/XUL/Exception.php';
+
 /**
  * XML/XUL/Element.php
  *
@@ -577,7 +580,8 @@ class XML_XUL_Element
     * attribute definitions of the element.
     *
     * @access   public
-    * @return   boolean     true on succes, PEAR_Error otherwise
+    * @return   boolean     true on success
+    * @throws XML_XUL_Exception
     */
     function validateAttributes()
     {
@@ -588,7 +592,7 @@ class XML_XUL_Element
             } elseif (isset($this->_attribDefs[$name])) {
                 $def    =   $this->_attribDefs[$name];
             } else {
-                return PEAR::raiseError('Unknown attribute '.$name.'.', XML_XUL_ERROR_ATTRIBUTE_UNKNOWN);
+                throw new XML_XUL_Exception('Unknown attribute '.$name.'.', XML_XUL_ERROR_ATTRIBUTE_UNKNOWN);
             }
 
             switch ($def['type']) {
@@ -604,7 +608,7 @@ class XML_XUL_Element
                 case 'int':
                 case 'integer':
                     if (!preg_match('°^[0-9]+$°', $value)) {
-                        return PEAR::raiseError('Attribute \''.$name.'\' must be integer.', XML_XUL_ERROR_ATTRIBUTE_NO_INTEGER);
+                        throw new XML_XUL_Exception('Attribute \''.$name.'\' must be integer.', XML_XUL_ERROR_ATTRIBUTE_NO_INTEGER);
                     }
                     break;
                 /**
@@ -612,7 +616,7 @@ class XML_XUL_Element
                  */
                 case 'enum':
                     if (!in_array($value, $def['values'])) {
-                        return PEAR::raiseError('Attribute \''.$name.'\' must be one of '.implode(', ', $def['values']).'.', XML_XUL_ERROR_ATTRIBUTE_INVALID_VALUE);
+                        throw new XML_XUL_Exception('Attribute \''.$name.'\' must be one of '.implode(', ', $def['values']).'.', XML_XUL_ERROR_ATTRIBUTE_INVALID_VALUE);
                     }
                     break;
                 /**
@@ -620,7 +624,7 @@ class XML_XUL_Element
                  */
                 case 'boolean':
                     if ($value != 'true' && $value != 'false') {
-                        return PEAR::raiseError('Attribute \''.$name.'\' must be one either \'true\' or \'false\'.', XML_XUL_ERROR_ATTRIBUTE_NO_BOOLEAN);
+                        throw new XML_XUL_Exception('Attribute \''.$name.'\' must be one either \'true\' or \'false\'.', XML_XUL_ERROR_ATTRIBUTE_NO_BOOLEAN);
                     }
                     break;
             }
