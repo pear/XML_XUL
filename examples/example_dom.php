@@ -13,14 +13,14 @@
  */
 require_once 'XML/XUL.php';
  
-$doc = &XML_XUL::createDocument( null, 'myNs' );
+$doc = XML_XUL::createDocument( null, 'myNs' );
 
 $doc->addStylesheet('chrome://global/skin/');
  
-$win = &$doc->createElement('window', array('title'=> 'Example for PEAR::XML_XUL'));
+$win = $doc->createElement('window', array('title'=> 'Example for PEAR::XML_XUL'));
 $doc->addRoot($win);
 
-$box = &$doc->createElement( 'Groupbox', array( 'orient' => 'horizontal' ) );
+$box = $doc->createElement( 'Groupbox', array( 'orient' => 'horizontal' ) );
 $win->appendChild($box);
 
 $box->setCaption( 'Using DOM in PHP to modify an element' );
@@ -30,8 +30,8 @@ for( $i = 1; $i <= 5; $i++ )
     $box->appendChild( $doc->createElement( 'Button', array('label' => "Button $i", 'id' => "btn$i") ) );
 }
 
-$btn3 = &$doc->getElementById('btn3');
-$btn6 = &$btn3->cloneElement();
+$btn3 = $doc->getElementById('btn3');
+$btn6 = $btn3->cloneElement();
 $btn3->setAttribute( 'label', 'Modified after creation' );
 
 $box->appendChild($btn6);
@@ -45,7 +45,7 @@ if (!isset($_GET['mode'])) {
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
-    $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );
+    $fmt = new XML_Beautifier( array( 'indent' => '  ' ) );
     echo '<pre>';
     echo htmlspecialchars( $fmt->formatString($doc->serialize()) );
     echo '</pre>';

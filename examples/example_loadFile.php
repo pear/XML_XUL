@@ -13,10 +13,10 @@
  */
 require_once 'XML/XUL.php';
  
-$doc = &XML_XUL::loadFile('xul/example1.xul');
+$doc = XML_XUL::loadFile('xul/example1.xul');
 
-$box = &$doc->getElementById('box');
-$browser = &$doc->getElementById('pear');
+$box = $doc->getElementById('box');
+$browser = $doc->getElementById('pear');
 
 $browser2 = $browser->cloneElement();
 
@@ -26,7 +26,7 @@ $box->appendChild( $browser2 );
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
-    $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );
+    $fmt = new XML_Beautifier( array( 'indent' => '  ' ) );
     echo '<pre>';
     echo htmlspecialchars( $fmt->formatString($doc->serialize()) );
     echo '</pre>';

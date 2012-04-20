@@ -21,15 +21,15 @@ $xul = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
           </groupbox>
         </window>';
  
-$doc = &XML_XUL::loadString($xul);
-$win = &$doc->getElementById('win');
+$doc = XML_XUL::loadString($xul);
+$win = $doc->getElementById('win');
 
 
-$box1 = &$doc->getElementById('box1');
-$box2 = &$box1->cloneElement(true);
+$box1 = $doc->getElementById('box1');
+$box2 = $box1->cloneElement(true);
 $box2->setCaption('Cloned recursive');
 
-$box3 = &$box1->cloneElement();
+$box3 = $box1->cloneElement();
 $box3->setCaption('Cloned non-recursive');
 
 $win->appendChild($box2);
@@ -41,7 +41,7 @@ if (!isset($_GET['mode'])) {
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
-    $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );
+    $fmt = new XML_Beautifier( array( 'indent' => '  ' ) );
     echo '<pre>';
     echo htmlspecialchars( $fmt->formatString($doc->serialize()) );
     echo '</pre>';

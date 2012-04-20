@@ -15,14 +15,14 @@
  */
 require_once 'XML/XUL.php';
  
-$doc = &XML_XUL::createDocument( );
+$doc = XML_XUL::createDocument( );
 
 $doc->addStylesheet('chrome://global/skin/');
  
-$win = &$doc->createElement('Window', array('title'=> 'Example for PEAR::XML_XUL'));
+$win = $doc->createElement('Window', array('title'=> 'Example for PEAR::XML_XUL'));
 $doc->addRoot($win);
 
-$gbox =  &$doc->createElement('Groupbox', array('orient'=>'horizontal'));
+$gbox = $doc->createElement('Groupbox', array('orient'=>'horizontal'));
 $win->appendChild($gbox);
 
 
@@ -30,13 +30,13 @@ $gbox->setCaption('Using a splitter');
 
 $gbox->appendChild( $doc->createElement( 'Description', array( 'width' => 200 ), 'A splitter allows a user to resize content. It is often used with a Grippy, that tiny little thing that you can click.' ) );
 
-$splitter = &$doc->createElement( 'Splitter', array( 'collapse' => 'before' ) );
+$splitter = $doc->createElement( 'Splitter', array( 'collapse' => 'before' ) );
 $splitter->appendChild( $doc->createElement( 'Grippy' ) );
 $gbox->appendChild( $splitter );
 
 $gbox->appendChild( $doc->createElement( 'Iframe', array( 'src' => 'http://pear.php.net', 'height' => 400, 'width' => 250 ) ) );
 
-$splitter2 = &$doc->createElement( 'Splitter', array( 'collapse' => 'before' ) );
+$splitter2 = $doc->createElement( 'Splitter', array( 'collapse' => 'before' ) );
 $splitter2->useGrippy();
 $gbox->appendChild( $splitter2 );
 
@@ -48,7 +48,7 @@ if (!isset($_GET['mode'])) {
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
-    $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );
+    $fmt = new XML_Beautifier( array( 'indent' => '  ' ) );
     echo '<pre>';
     echo htmlspecialchars( $fmt->formatString($doc->serialize()) );
     echo '</pre>';

@@ -13,26 +13,26 @@
  */
 require_once 'XML/XUL.php';
  
-$doc = &XML_XUL::createDocument();
+$doc = XML_XUL::createDocument();
 
 $doc->addStylesheet('chrome://global/skin/');
  
-$win = &$doc->createElement('window', array('title'=> 'Example for PEAR::XML_XUL'));
+$win = $doc->createElement('window', array('title'=> 'Example for PEAR::XML_XUL'));
 $doc->addRoot($win);
 
-$box = &$doc->createElement( 'Groupbox' );
+$box = $doc->createElement( 'Groupbox' );
 $win->appendChild($box);
 
 $box->setCaption( 'Using a progressmeter' );
 
 $box->addDescription( 'Progressmeters can either be determined...' );
 
-$meter = &$doc->createElement( 'Progressmeter', array( 'mode' => 'determined', 'value' => '30%', 'height' => 20 ) );
+$meter = $doc->createElement( 'Progressmeter', array( 'mode' => 'determined', 'value' => '30%', 'height' => 20 ) );
 $box->appendChild( $meter );
 
 $box->addDescription( '...or undetermined.' );
 
-$meter2 = &$doc->createElement( 'Progressmeter', array( 'mode' => 'undetermined', 'height' => 20 ) );
+$meter2 = $doc->createElement( 'Progressmeter', array( 'mode' => 'undetermined', 'height' => 20 ) );
 $box->appendChild( $meter2 );
 
 if (!isset($_GET['mode'])) {
@@ -41,7 +41,7 @@ if (!isset($_GET['mode'])) {
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
-    $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );
+    $fmt = new XML_Beautifier( array( 'indent' => '  ' ) );
     echo '<pre>';
     echo htmlspecialchars( $fmt->formatString($doc->serialize()) );
     echo '</pre>';

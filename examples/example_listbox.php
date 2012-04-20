@@ -12,14 +12,14 @@
  */
 require_once 'XML/XUL.php';
  
-$doc = &XML_XUL::createDocument();
+$doc = XML_XUL::createDocument();
 
 $doc->addStylesheet('chrome://global/skin/');
  
-$win = &$doc->createElement('Window', array('title'=> 'Example for PEAR::XML_XUL'));
+$win = $doc->createElement('Window', array('title'=> 'Example for PEAR::XML_XUL'));
 $doc->addRoot($win);
 
-$gbox =  &$doc->createElement('Groupbox', array('orient'=>'vertical'));
+$gbox = $doc->createElement('Groupbox', array('orient'=>'vertical'));
 $gbox->setCaption('Using Listboxes');
 
 $gbox->appendChild( $doc->createElement( 'Description', array(), 'This is a simple listbox.' ) );
@@ -27,14 +27,14 @@ $gbox->appendChild( $doc->createElement( 'Description', array(), 'This is a simp
 $win->appendChild($gbox);
 
 
-$lb1 = &$doc->createElement('Listbox', array('rows' => 3));
+$lb1 = $doc->createElement('Listbox', array('rows' => 3));
 $lb1->addItem( 'Superman', 'supes' );
 $lb1->addItem( 'Batman', 'bats' );
 $gbox->appendChild($lb1);
 
 $gbox->appendChild( $doc->createElement( 'Description', array(), 'This is a listbox with several columns.' ) );
 
-$lb2 = &$doc->createElement('Listbox');
+$lb2 = $doc->createElement('Listbox');
 $lb2->setHeaders( array(
                         'Superhero',
                         'Name',
@@ -55,7 +55,7 @@ if (!isset($_GET['mode'])) {
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
-    $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );
+    $fmt = new XML_Beautifier( array( 'indent' => '  ' ) );
     echo '<pre>';
     echo htmlspecialchars( $fmt->formatString($doc->serialize()) );
     echo '</pre>';

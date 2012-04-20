@@ -1,7 +1,7 @@
 <?PHP
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
+// | PHP Version 5                                                        |
 // +----------------------------------------------------------------------+
 // | Copyright (c) 1997-2002 The PHP Group                                |
 // +----------------------------------------------------------------------+
@@ -315,15 +315,15 @@ class XML_XUL_Document
     * @param    string  character data, mainly used for description element
     * @return   object XML_XUL_Element
     */
-    function &createElement( $name, $attributes = array(), $cdata = null, $replaceEntities = true)
+    function createElement( $name, $attributes = array(), $cdata = null, $replaceEntities = true)
     {
         $classname = sprintf( 'XML_XUL_Element_%s', $name );
         $file      = sprintf( 'XML/XUL/Element/%s.php', ucfirst($name) );
         if (!@include_once $file) {
-            $el = &new XML_XUL_Element( $attributes, $cdata );
+            $el = new XML_XUL_Element( $attributes, $cdata );
             $el->elementName = strtolower( $name );
         } else {
-            $el = &new $classname( $attributes, $cdata );
+            $el = new $classname( $attributes, $cdata );
         }
 
         $el->setNamespace($this->_ns);
@@ -346,11 +346,11 @@ class XML_XUL_Document
     * @param    string  character data, mainly used for description element
     * @return   object XML_XUL_Element_Html
     */
-    function &createHtmlElement( $name, $attributes = array(), $cdata = null )
+    function createHtmlElement( $name, $attributes = array(), $cdata = null )
     {
         require_once 'XML/XUL/Element/Html.php';
 
-        $el    =   &new XML_XUL_Element_Html( $attributes, $cdata );
+        $el    =   new XML_XUL_Element_Html( $attributes, $cdata );
         $el->setElementName($name);
         $el->setNamespace($this->_htmlNs);
         $el->setDocument($this);
@@ -365,11 +365,11 @@ class XML_XUL_Document
     * @param    string  html
     * @return   object XML_XUL_Element_Html
     */
-    function &createHtmlRaw( $html )
+    function createHtmlRaw( $html )
     {
         require_once 'XML/XUL/Element/Html.php';
 
-        $el    =   &new XML_XUL_Element_Html();
+        $el    =   new XML_XUL_Element_Html();
         $el->setDocument($this);
         $el->setRawHtml($html);
         
@@ -383,7 +383,7 @@ class XML_XUL_Document
     * @param    string  id
     * @return   object XML_XUL_Element
     */
-    function &getElementById( $id )
+    function getElementById( $id )
     {
         return $this->root->getElementById( $id );
     }
@@ -395,7 +395,7 @@ class XML_XUL_Document
     * @param    string  id
     * @return   array   array containing XML_XUL_Element objects
     */
-    function &getElementsByTagname($tagname)
+    function getElementsByTagname($tagname)
     {
         return $this->root->getElementsByTagname( $tagname );
     }

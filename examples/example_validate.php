@@ -13,9 +13,9 @@
  */
 require_once 'XML/XUL.php';
  
-$doc    = &XML_XUL::createDocument();
+$doc    = XML_XUL::createDocument();
 
-$tb     = &$doc->createElement( 'Textbox', array( 'id' => 'name', 'size' => 20, 'align' => 'bar' ) );
+$tb     = $doc->createElement( 'Textbox', array( 'id' => 'name', 'size' => 20, 'align' => 'bar' ) );
 $doc->addRoot($tb);
 
 if (!isset($_GET['mode'])) {
@@ -24,7 +24,7 @@ if (!isset($_GET['mode'])) {
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
-    $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );
+    $fmt = new XML_Beautifier( array( 'indent' => '  ' ) );
     echo '<pre>';
     echo htmlspecialchars( $fmt->formatString($doc->serialize()) );
     echo '</pre>';

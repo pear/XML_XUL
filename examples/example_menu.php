@@ -12,31 +12,31 @@
  */
 require_once 'XML/XUL.php';
  
-$doc = &XML_XUL::createDocument( );
+$doc = XML_XUL::createDocument( );
 
 $doc->addStylesheet('chrome://global/skin/');
  
-$win = &$doc->createElement('Window', array('title'=> 'Example for PEAR::XML_XUL'));
+$win = $doc->createElement('Window', array('title'=> 'Example for PEAR::XML_XUL'));
 $doc->addRoot($win);
 
-$box =  &$doc->createElement('Toolbox', array('flex' => '1'));
+$box = $doc->createElement('Toolbox', array('flex' => '1'));
 $win->appendChild($box);
 
-$bar = &$doc->createElement('Menubar', array('id' => 'myBar'));
+$bar = $doc->createElement('Menubar', array('id' => 'myBar'));
 $box->appendChild( $bar );
 
-$menu = &$bar->addMenu(array('id' => 'file', 'label' => 'File'));
+$menu = $bar->addMenu(array('id' => 'file', 'label' => 'File'));
 $menu->addItem(array('label' => 'Open'));
 $menu->addItem(array('label' => 'Save'));
 
-$sub = &$menu->addSubmenu(array('label' => 'Save as...'));
+$sub = $menu->addSubmenu(array('label' => 'Save as...'));
 $sub->addItem(array('label' => 'XML'));
 $sub->addItem(array('label' => 'Plain Text'));
 
 $menu->addSeparator();
 $menu->addItem(array('label' => 'Exit'));
 
-$menu2 = &$bar->addMenu(array('id' => 'edit', 'label' => 'Edit'));
+$menu2 = $bar->addMenu(array('id' => 'edit', 'label' => 'Edit'));
 $menu2->addItem(array('label' => 'Copy'));
 $menu2->addItem(array('label' => 'Paste'));
 
@@ -46,7 +46,7 @@ if (!isset($_GET['mode'])) {
 
 if ($_GET['mode'] == 'debug') {
     require_once 'XML/Beautifier.php';
-    $fmt = &new XML_Beautifier( array( 'indent' => '  ' ) );
+    $fmt = new XML_Beautifier( array( 'indent' => '  ' ) );
     echo '<pre>';
     echo htmlspecialchars( $fmt->formatString($doc->serialize()) );
     echo '</pre>';
