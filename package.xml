@@ -18,10 +18,10 @@ XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP
   <email>amir@php.net</email>
   <active>yes</active>
  </lead>
- <date>2012-04-21</date>
- <time>00:31:45</time>
+ <date>2012-08-31</date>
+ <time>20:12:20</time>
  <version>
-  <release>0.9.0</release>
+  <release>0.9.1</release>
   <api>0.9.0</api>
  </version>
  <stability>
@@ -31,12 +31,8 @@ XML_XUL provides a API similar to DOM to create XUL applications. There is a PHP
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
 QA release
-PHP 5
-Package 2.0
-Exceptions, not PEAR_Error
-Drop PEAR dep
-Swap to XML_Util2
-Swap to XML_Parser2
+
+Bug #19594	broken XML_Util2 dep
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -354,6 +350,23 @@ Exceptions, not PEAR_Error
 Drop PEAR dep
 Swap to XML_Util2
 Swap to XML_Parser2
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.1</release>
+    <api>0.9.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-08-31</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+QA release
+
+Bug #19594	broken XML_Util2 dep
    </notes>
   </release>
  </changelog>
